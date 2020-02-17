@@ -1,16 +1,35 @@
 PODS:
+  - RxAtomic (4.4.2)
+  - RxCocoa (4.4.2):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxOptional (3.6.2):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.2):
+    - RxAtomic (>= 4.4.2, ~> 4.4)
   - SwiftGen (6.1.0)
 
 DEPENDENCIES:
+  - RxCocoa (~> 4.4.0)
+  - RxOptional (~> 3.6.2)
+  - RxSwift (~> 4.4.0)
   - SwiftGen (~> 6.0)
 
 SPEC REPOS:
   trunk:
+    - RxAtomic
+    - RxCocoa
+    - RxOptional
+    - RxSwift
     - SwiftGen
 
 SPEC CHECKSUMS:
+  RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
+  RxCocoa: 477990dc3b4c3ff55fb0ac77e1cc06244e0aaec8
+  RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
+  RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
 
-PODFILE CHECKSUM: e8f9ce20b4a4fbe51a57fa9617451e5f249d54a4
+PODFILE CHECKSUM: 0e61406cf9671177af1cb262068518127d5e2aec
 
 COCOAPODS: 1.8.4

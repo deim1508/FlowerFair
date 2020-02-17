@@ -3,28 +3,46 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		22DDA84C23FAB09C009B3D8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA84B23FAB09C009B3D8C /* AppDelegate.swift */; };
-		22DDA84E23FAB09C009B3D8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA84D23FAB09C009B3D8C /* SceneDelegate.swift */; };
-		22DDA85023FAB09C009B3D8C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA84F23FAB09C009B3D8C /* ContentView.swift */; };
-		22DDA85223FAB09D009B3D8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22DDA85123FAB09D009B3D8C /* Assets.xcassets */; };
+		22DDA85223FAB09D009B3D8C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22DDA85123FAB09D009B3D8C /* Images.xcassets */; };
 		22DDA85523FAB09D009B3D8C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22DDA85423FAB09D009B3D8C /* Preview Assets.xcassets */; };
 		22DDA85823FAB09D009B3D8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22DDA85623FAB09D009B3D8C /* LaunchScreen.storyboard */; };
+		22DDA86423FABEB3009B3D8C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22DDA86323FABEB3009B3D8C /* Colors.xcassets */; };
+		22DDA86723FABEE0009B3D8C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22DDA86623FABEE0009B3D8C /* Localizable.strings */; };
+		22DDA87023FAC6A8009B3D8C /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA86F23FAC6A8009B3D8C /* BindableType.swift */; };
+		22DDA87423FAC900009B3D8C /* RootFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA87323FAC900009B3D8C /* RootFlowController.swift */; };
+		22DDA87723FACA43009B3D8C /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA87623FACA43009B3D8C /* FlowController.swift */; };
+		22DDA87923FAD24C009B3D8C /* NavigationFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA87823FAD24C009B3D8C /* NavigationFlowController.swift */; };
+		22DDA87C23FAD98F009B3D8C /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA87B23FAD98F009B3D8C /* MainFlowController.swift */; };
+		22DDA88023FADA74009B3D8C /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA87F23FADA74009B3D8C /* OrdersViewController.swift */; };
+		22DDA88623FAEF88009B3D8C /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA88323FAEF87009B3D8C /* Strings.swift */; };
+		22DDA88723FAEF88009B3D8C /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA88423FAEF87009B3D8C /* Assets.swift */; };
+		22DDA88823FAEF88009B3D8C /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA88523FAEF88009B3D8C /* Storyboards.swift */; };
 		3F0D12D8F19E30463BFB71F0 /* Pods_FlowerFair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F197A4850BF7D239CE36CB /* Pods_FlowerFair.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		22DDA84823FAB09C009B3D8C /* FlowerFair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowerFair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22DDA84B23FAB09C009B3D8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		22DDA84D23FAB09C009B3D8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		22DDA84F23FAB09C009B3D8C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		22DDA85123FAB09D009B3D8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		22DDA85123FAB09D009B3D8C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		22DDA85423FAB09D009B3D8C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		22DDA85723FAB09D009B3D8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22DDA85923FAB09D009B3D8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22DDA86323FABEB3009B3D8C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		22DDA86623FABEE0009B3D8C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		22DDA86F23FAC6A8009B3D8C /* BindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
+		22DDA87323FAC900009B3D8C /* RootFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFlowController.swift; sourceTree = "<group>"; };
+		22DDA87623FACA43009B3D8C /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
+		22DDA87823FAD24C009B3D8C /* NavigationFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFlowController.swift; sourceTree = "<group>"; };
+		22DDA87B23FAD98F009B3D8C /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
+		22DDA87F23FADA74009B3D8C /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
+		22DDA88323FAEF87009B3D8C /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		22DDA88423FAEF87009B3D8C /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		22DDA88523FAEF88009B3D8C /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		35F197A4850BF7D239CE36CB /* Pods_FlowerFair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlowerFair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4194FB8BD212DE97695A81C /* Pods-FlowerFair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowerFair.release.xcconfig"; path = "Target Support Files/Pods-FlowerFair/Pods-FlowerFair.release.xcconfig"; sourceTree = "<group>"; };
 		C5359F765F6941295E7BBFEF /* Pods-FlowerFair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowerFair.debug.xcconfig"; path = "Target Support Files/Pods-FlowerFair/Pods-FlowerFair.debug.xcconfig"; sourceTree = "<group>"; };
@@ -45,7 +63,7 @@
 		22DDA83F23FAB09C009B3D8C = {
 			isa = PBXGroup;
 			children = (
-				22DDA84A23FAB09C009B3D8C /* FlowerFair */,
+				22DDA84A23FAB09C009B3D8C /* Source */,
 				22DDA84923FAB09C009B3D8C /* Products */,
 				C18C08C35A3971C0A748E2B8 /* Pods */,
 				AACF75F36C5DDEDF195E13AA /* Frameworks */,
@@ -60,18 +78,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		22DDA84A23FAB09C009B3D8C /* FlowerFair */ = {
+		22DDA84A23FAB09C009B3D8C /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				22DDA84B23FAB09C009B3D8C /* AppDelegate.swift */,
-				22DDA84D23FAB09C009B3D8C /* SceneDelegate.swift */,
-				22DDA84F23FAB09C009B3D8C /* ContentView.swift */,
-				22DDA85123FAB09D009B3D8C /* Assets.xcassets */,
-				22DDA85623FAB09D009B3D8C /* LaunchScreen.storyboard */,
-				22DDA85923FAB09D009B3D8C /* Info.plist */,
+				22DDA86023FABDFB009B3D8C /* Main */,
+				22DDA86823FAC025009B3D8C /* Generated */,
+				22DDA86923FAC06A009B3D8C /* Classes */,
+				22DDA86223FABE53009B3D8C /* Resources */,
+				22DDA86123FABE23009B3D8C /* Supporting Files */,
 				22DDA85323FAB09D009B3D8C /* Preview Content */,
 			);
-			path = FlowerFair;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		22DDA85323FAB09D009B3D8C /* Preview Content */ = {
@@ -80,6 +97,152 @@
 				22DDA85423FAB09D009B3D8C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		22DDA86023FABDFB009B3D8C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				22DDA84B23FAB09C009B3D8C /* AppDelegate.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		22DDA86123FABE23009B3D8C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				22DDA85923FAB09D009B3D8C /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		22DDA86223FABE53009B3D8C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				22DDA86523FABEB9009B3D8C /* Strings */,
+				22DDA85123FAB09D009B3D8C /* Images.xcassets */,
+				22DDA86323FABEB3009B3D8C /* Colors.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		22DDA86523FABEB9009B3D8C /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				22DDA86623FABEE0009B3D8C /* Localizable.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		22DDA86823FAC025009B3D8C /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				22DDA88423FAEF87009B3D8C /* Assets.swift */,
+				22DDA88523FAEF88009B3D8C /* Storyboards.swift */,
+				22DDA88323FAEF87009B3D8C /* Strings.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		22DDA86923FAC06A009B3D8C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				22DDA86A23FAC0BC009B3D8C /* Logic */,
+				22DDA86B23FAC0C7009B3D8C /* Data Access */,
+				22DDA86C23FAC0D2009B3D8C /* User Interface */,
+				22DDA86D23FAC0DE009B3D8C /* Extensions */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		22DDA86A23FAC0BC009B3D8C /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		22DDA86B23FAC0C7009B3D8C /* Data Access */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Data Access";
+			sourceTree = "<group>";
+		};
+		22DDA86C23FAC0D2009B3D8C /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				22DDA87D23FADA48009B3D8C /* Scenes */,
+				22DDA87123FAC8CB009B3D8C /* Flows */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		22DDA86D23FAC0DE009B3D8C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				22DDA86E23FAC68F009B3D8C /* Binding */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		22DDA86E23FAC68F009B3D8C /* Binding */ = {
+			isa = PBXGroup;
+			children = (
+				22DDA86F23FAC6A8009B3D8C /* BindableType.swift */,
+			);
+			path = Binding;
+			sourceTree = "<group>";
+		};
+		22DDA87123FAC8CB009B3D8C /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				22DDA87A23FAD979009B3D8C /* MainFlow */,
+				22DDA87523FACA19009B3D8C /* Base */,
+				22DDA87223FAC8E0009B3D8C /* Root */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		22DDA87223FAC8E0009B3D8C /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				22DDA85623FAB09D009B3D8C /* LaunchScreen.storyboard */,
+				22DDA87323FAC900009B3D8C /* RootFlowController.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		22DDA87523FACA19009B3D8C /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				22DDA87623FACA43009B3D8C /* FlowController.swift */,
+				22DDA87823FAD24C009B3D8C /* NavigationFlowController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		22DDA87A23FAD979009B3D8C /* MainFlow */ = {
+			isa = PBXGroup;
+			children = (
+				22DDA87B23FAD98F009B3D8C /* MainFlowController.swift */,
+			);
+			path = MainFlow;
+			sourceTree = "<group>";
+		};
+		22DDA87D23FADA48009B3D8C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				22DDA87E23FADA55009B3D8C /* Orders */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		22DDA87E23FADA55009B3D8C /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				22DDA87F23FADA74009B3D8C /* OrdersViewController.swift */,
+			);
+			path = Orders;
 			sourceTree = "<group>";
 		};
 		AACF75F36C5DDEDF195E13AA /* Frameworks */ = {
@@ -111,6 +274,7 @@
 				22DDA84523FAB09C009B3D8C /* Frameworks */,
 				22DDA84623FAB09C009B3D8C /* Resources */,
 				22DDA85F23FAB878009B3D8C /* SwiftGen */,
+				19E786FB8EFACE7D60C94293 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -159,15 +323,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22DDA86723FABEE0009B3D8C /* Localizable.strings in Resources */,
 				22DDA85823FAB09D009B3D8C /* LaunchScreen.storyboard in Resources */,
+				22DDA86423FABEB3009B3D8C /* Colors.xcassets in Resources */,
 				22DDA85523FAB09D009B3D8C /* Preview Assets.xcassets in Resources */,
-				22DDA85223FAB09D009B3D8C /* Assets.xcassets in Resources */,
+				22DDA85223FAB09D009B3D8C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		19E786FB8EFACE7D60C94293 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FlowerFair/Pods-FlowerFair-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FlowerFair/Pods-FlowerFair-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FlowerFair/Pods-FlowerFair-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		22DDA85F23FAB878009B3D8C /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,9 +398,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22DDA87023FAC6A8009B3D8C /* BindableType.swift in Sources */,
 				22DDA84C23FAB09C009B3D8C /* AppDelegate.swift in Sources */,
-				22DDA84E23FAB09C009B3D8C /* SceneDelegate.swift in Sources */,
-				22DDA85023FAB09C009B3D8C /* ContentView.swift in Sources */,
+				22DDA88623FAEF88009B3D8C /* Strings.swift in Sources */,
+				22DDA87923FAD24C009B3D8C /* NavigationFlowController.swift in Sources */,
+				22DDA88023FADA74009B3D8C /* OrdersViewController.swift in Sources */,
+				22DDA87C23FAD98F009B3D8C /* MainFlowController.swift in Sources */,
+				22DDA88823FAEF88009B3D8C /* Storyboards.swift in Sources */,
+				22DDA87423FAC900009B3D8C /* RootFlowController.swift in Sources */,
+				22DDA87723FACA43009B3D8C /* FlowController.swift in Sources */,
+				22DDA88723FAEF88009B3D8C /* Assets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,9 +545,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"FlowerFair/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = FlowerFair/Info.plist;
+				INFOPLIST_FILE = "Source/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -375,9 +564,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"FlowerFair/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = FlowerFair/Info.plist;
+				INFOPLIST_FILE = "Source/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

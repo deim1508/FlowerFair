@@ -7,4 +7,7 @@ target 'FlowerFair' do
 
   # Pods for FlowerFair
   pod 'SwiftGen', '~> 6.0'
+  pod 'RxSwift', '~> 4.4.0'
+  pod 'RxCocoa', '~> 4.4.0'
+  pod 'RxOptional', '~> 3.6.2'
 end
