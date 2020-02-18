@@ -11,7 +11,7 @@ import UIKit.UIView
 struct BorderDecorator: ViewDecorator {
     func decorate(view: UIView) {
         view.layer.borderWidth = 2
-        view.layer.borderColor = Asset.Colors.shadow.color
+        view.layer.borderColor = Asset.Colors.shadow.color.cgColor
     }
     
     func removeDecorator(view: UIView) {

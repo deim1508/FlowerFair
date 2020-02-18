@@ -9,7 +9,7 @@
 import UIKit
 
 private enum LayoutValues {
-    static let sectionInsets = UIEdgeInsets(top: 24, left: 20, bottom: 24, right: 20)
+    static let sectionInsets = UIEdgeInsets(top: 24, left: 16, bottom: 24, right: 16)
 }
 
 class OrdersViewController: UIViewController {
