@@ -24,7 +24,9 @@ class MainFlowController: FlowController {
     }
     
     func initMainViewController() {
-        ordersController = OrdersViewController()
+        ordersController = StoryboardScene.OrdersViewController.initialScene.instantiate()
+        let ordersViewModel = OrdersViewModelImpl()
+        ordersController.bind(viewModel: ordersViewModel)
     }
     
     func firstScreen() -> UIViewController {
