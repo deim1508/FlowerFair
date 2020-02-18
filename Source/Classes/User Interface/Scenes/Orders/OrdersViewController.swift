@@ -33,10 +33,11 @@ class OrdersViewController: UIViewController {
         view.backgroundColor = Asset.Colors.background.color
         title = L10n.orderListTitle
         
+        collectionView.backgroundColor = Asset.Colors.background.color
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerWithNib(cellType: OrderCollectionViewCell.self)
-
+     
         collectionViewLayout.estimatedItemSize = LayoutValues.estimatedSize
         collectionViewLayout.itemSize = UICollectionViewFlowLayout.automaticSize
     }
@@ -64,12 +65,12 @@ extension OrdersViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return LayoutValues.sectionInsets
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let space: CGFloat = LayoutValues.sectionInsets.left + LayoutValues.sectionInsets.right + 12
-         let size:CGFloat = (collectionView.frame.size.width / 2.0 ) - 2 * space
-         return CGSize(width: size, height: size)
-     }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let space: CGFloat = LayoutValues.sectionInsets.left + LayoutValues.sectionInsets.right + 12
+//         let size: CGFloat = (collectionView.frame.size.width / 2.0 ) - 2 * space
+//         return CGSize(width: size, height: size)
+//     }
 }
 
 //MARK: - Bind viewModel

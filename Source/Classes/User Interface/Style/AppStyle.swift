@@ -8,12 +8,19 @@
 
 import UIKit
 
-struct AppStyle {
-    
-    static let cornerRadiusDecorator = CornerRadiusDecorator(radius: 6)
-    static let borderDecorator = BorderDecorator()
+enum FontType {
+    case regular, italic, bold
 }
 
-enum FontType {
-    case regular, medium, bold
+struct AppStyle {
+    static let shadowDecorator = ShadowDecorator(radius: 12)
+    static let cornerRadiusDecorator = CornerRadiusDecorator(radius: 12)
+    static let borderDecorator = BorderDecorator()
+    
+    static func setupAppearance() {
+        UINavigationBar.appearance().backgroundColor = Asset.Colors.background.color
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: Font.regular(size: .medium)]
+        UINavigationBar.appearance().prefersLargeTitles = true
+        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.font: Font.regular(size: .superLarge)]
+    }
 }

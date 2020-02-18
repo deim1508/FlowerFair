@@ -20,6 +20,8 @@
 internal enum Asset {
   internal enum Colors {
     internal static let background = ColorAsset(name: "background")
+    internal static let orderCellBackground = ColorAsset(name: "order_cell_background")
+    internal static let shadow = ColorAsset(name: "shadow")
   }
   internal enum Images {
     internal static let orderPlaceholder1 = ImageAsset(name: "order_placeholder_1")

@@ -16,8 +16,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="150" height="255"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xgE-OC-Fgo">
-                        <rect key="frame" x="0.0" y="44" width="150" height="199"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xgE-OC-Fgo">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="247"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggn-2u-UoG">
                         <rect key="frame" x="24" y="247" width="102" height="0.0"/>
@@ -28,13 +28,13 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="leading" secondItem="xgE-OC-Fgo" secondAttribute="leading" priority="250" id="6TY-CI-bdR"/>
-                <constraint firstItem="xgE-OC-Fgo" firstAttribute="trailing" secondItem="ZTg-uK-7eu" secondAttribute="trailing" priority="250" id="94s-W9-Cf1"/>
                 <constraint firstItem="ggn-2u-UoG" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="24" id="AYP-kW-XDB"/>
-                <constraint firstItem="xgE-OC-Fgo" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" id="F5N-xf-sAx"/>
+                <constraint firstItem="xgE-OC-Fgo" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="F5N-xf-sAx"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="ggn-2u-UoG" secondAttribute="trailing" constant="24" id="Hcv-Fe-NzO"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="ggn-2u-UoG" secondAttribute="bottom" constant="8" id="T2Y-3z-vyS"/>
-                <constraint firstItem="ggn-2u-UoG" firstAttribute="top" secondItem="xgE-OC-Fgo" secondAttribute="bottom" constant="4" id="ebB-9M-ZEK"/>
+                <constraint firstItem="ggn-2u-UoG" firstAttribute="top" secondItem="xgE-OC-Fgo" secondAttribute="bottom" id="ebB-9M-ZEK"/>
+                <constraint firstItem="xgE-OC-Fgo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uft-yV-dXZ"/>
+                <constraint firstItem="xgE-OC-Fgo" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="wtF-Py-5Vo"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="154" height="255"/>

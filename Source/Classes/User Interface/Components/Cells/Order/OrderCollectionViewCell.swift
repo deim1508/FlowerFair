@@ -21,8 +21,8 @@ class OrderCollectionViewCell: UICollectionViewCell {
         imageView.image = Asset.Images.orderPlaceholder1.image
         titleLabel.text = "Flower Fair"
         titleLabel.font = Font.regular(size: .large)
-        contentView.decorator(with: [AppStyle.borderDecorator, AppStyle.cornerRadiusDecorator])
-        
+        contentView.decorator(with: [AppStyle.cornerRadiusDecorator, AppStyle.borderDecorator])
+        contentView.backgroundColor = Asset.Colors.orderCellBackground.color        
     }
 
 }

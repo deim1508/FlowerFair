@@ -32,6 +32,7 @@
 		22DDA89E23FBF713009B3D8C /* BorderDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA89D23FBF713009B3D8C /* BorderDecorator.swift */; };
 		22DDA8A023FBF77E009B3D8C /* CornerRadiusDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA89F23FBF77E009B3D8C /* CornerRadiusDecorator.swift */; };
 		22DDA8A223FC0860009B3D8C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA8A123FC0860009B3D8C /* Font.swift */; };
+		22DDA8A423FC200A009B3D8C /* ShadowDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA8A323FC200A009B3D8C /* ShadowDecorator.swift */; };
 		3F0D12D8F19E30463BFB71F0 /* Pods_FlowerFair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F197A4850BF7D239CE36CB /* Pods_FlowerFair.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		22DDA89D23FBF713009B3D8C /* BorderDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderDecorator.swift; sourceTree = "<group>"; };
 		22DDA89F23FBF77E009B3D8C /* CornerRadiusDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusDecorator.swift; sourceTree = "<group>"; };
 		22DDA8A123FC0860009B3D8C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		22DDA8A323FC200A009B3D8C /* ShadowDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDecorator.swift; sourceTree = "<group>"; };
 		35F197A4850BF7D239CE36CB /* Pods_FlowerFair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlowerFair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4194FB8BD212DE97695A81C /* Pods-FlowerFair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowerFair.release.xcconfig"; path = "Target Support Files/Pods-FlowerFair/Pods-FlowerFair.release.xcconfig"; sourceTree = "<group>"; };
 		C5359F765F6941295E7BBFEF /* Pods-FlowerFair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowerFair.debug.xcconfig"; path = "Target Support Files/Pods-FlowerFair/Pods-FlowerFair.debug.xcconfig"; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				22DDA89B23FBF638009B3D8C /* ViewDecorator.swift */,
 				22DDA89D23FBF713009B3D8C /* BorderDecorator.swift */,
 				22DDA89F23FBF77E009B3D8C /* CornerRadiusDecorator.swift */,
+				22DDA8A323FC200A009B3D8C /* ShadowDecorator.swift */,
 			);
 			path = Decorator;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				22DDA89623FBEF96009B3D8C /* UICollectionView+Nib.swift in Sources */,
 				22DDA8A223FC0860009B3D8C /* Font.swift in Sources */,
 				22DDA87723FACA43009B3D8C /* FlowController.swift in Sources */,
+				22DDA8A423FC200A009B3D8C /* ShadowDecorator.swift in Sources */,
 				22DDA88723FAEF88009B3D8C /* Assets.swift in Sources */,
 				22DDA89A23FBF582009B3D8C /* AppStyle.swift in Sources */,
 			);
