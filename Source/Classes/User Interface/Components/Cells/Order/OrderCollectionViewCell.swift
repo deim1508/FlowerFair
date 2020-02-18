@@ -7,22 +7,56 @@
 //
 
 import UIKit
+import PINRemoteImage
+
+struct OrderCollectionViewCellViewModel {
+    let title: String
+    let price: String
+    let imageURL: URL?
+}
 
 class OrderCollectionViewCell: UICollectionViewCell {
 
     //MARK: - Private properties
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var priceLabel: UILabel!
     
-    //MARK: - Lifecycle method
+    //MARK: - Public properties
+    var viewModel: OrderCollectionViewCellViewModel? {
+        didSet {
+            bindViewModel()
+        }
+    }
+    
+    //MARK: - Lifecycle methods
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        imageView.image = Asset.Images.orderPlaceholder1.image
-        titleLabel.text = "Flower Fair"
-        titleLabel.font = Font.regular(size: .large)
-        contentView.decorator(with: [AppStyle.cornerRadiusDecorator, AppStyle.borderDecorator])
-        contentView.backgroundColor = Asset.Colors.orderCellBackground.color        
+        imageView.clipsToBounds = true
+        
+        contentView.decorator(with: AppStyle.cornerRadiusDecorator)
+        contentView.backgroundColor = Asset.Colors.orderCellBackground.color
+                
+        titleLabel.textAlignment = .right
+        titleLabel.font = Font.regular(size: .mediumLarge)
+        
+        priceLabel.textAlignment = .right
+        priceLabel.font = Font.bold(size: .midLarge)
     }
-
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.pin_cancelImageDownload()
+    }
+    
+    //MARK: - Private methods
+    private func bindViewModel() {
+        guard let viewModel = viewModel else {
+            fatalError("ViewModel is not set! - OrderCollectionViewCell")
+        }
+        titleLabel.text = viewModel.title
+        priceLabel.text = viewModel.price
+        imageView.pin_setImage(from: viewModel.imageURL, placeholderImage: Asset.Images.orderPlaceholder1.image)
+    }
 }

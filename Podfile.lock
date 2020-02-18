@@ -1,4 +1,19 @@
 PODS:
+  - PINCache (3.0.1-beta.8):
+    - PINCache/Arc-exception-safe (= 3.0.1-beta.8)
+    - PINCache/Core (= 3.0.1-beta.8)
+  - PINCache/Arc-exception-safe (3.0.1-beta.8):
+    - PINCache/Core
+  - PINCache/Core (3.0.1-beta.8):
+    - PINOperation (~> 1.1.1)
+  - PINOperation (1.1.2)
+  - PINRemoteImage (3.0.0):
+    - PINRemoteImage/PINCache (= 3.0.0)
+  - PINRemoteImage/Core (3.0.0):
+    - PINOperation
+  - PINRemoteImage/PINCache (3.0.0):
+    - PINCache (= 3.0.1-beta.8)
+    - PINRemoteImage/Core
   - RxAtomic (4.4.2)
   - RxCocoa (4.4.2):
     - RxSwift (>= 4.4.2, ~> 4.4)
@@ -10,6 +25,7 @@ PODS:
   - SwiftGen (6.1.0)
 
 DEPENDENCIES:
+  - PINRemoteImage
   - RxCocoa (~> 4.4.0)
   - RxOptional (~> 3.6.2)
   - RxSwift (~> 4.4.0)
@@ -17,6 +33,9 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - PINCache
+    - PINOperation
+    - PINRemoteImage
     - RxAtomic
     - RxCocoa
     - RxOptional
@@ -24,12 +43,15 @@ SPEC REPOS:
     - SwiftGen
 
 SPEC CHECKSUMS:
+  PINCache: 534fd41d358d828dfdf227a0d327f3673a65e20b
+  PINOperation: 24b774353ca248fcf87d67b2d61eef42087c125a
+  PINRemoteImage: e2b89e19fb6e77ffc099f9d9f3b3fe1745e3f9f9
   RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
   RxCocoa: 477990dc3b4c3ff55fb0ac77e1cc06244e0aaec8
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
 
-PODFILE CHECKSUM: 0e61406cf9671177af1cb262068518127d5e2aec
+PODFILE CHECKSUM: 6c95edb1e922947df03792f6e7df368c046ae779
 
 COCOAPODS: 1.8.4

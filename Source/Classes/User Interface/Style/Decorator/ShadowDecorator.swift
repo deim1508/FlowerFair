@@ -21,7 +21,7 @@ struct ShadowDecorator: ViewDecorator {
         view.layer.masksToBounds = false
         view.layer.shadowColor = Asset.Colors.shadow.color.withAlphaComponent(0.17).cgColor
         view.layer.shadowRadius = radius
-        view.layer.shadowOffset = CGSize(width: 0, height: 5)
+        view.layer.shadowOffset = CGSize(width: 0, height: 4)
         view.layer.shadowOpacity = opacity
     }
       

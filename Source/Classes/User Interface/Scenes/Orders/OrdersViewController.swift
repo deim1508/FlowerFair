@@ -10,7 +10,6 @@ import UIKit
 
 private enum LayoutValues {
     static let sectionInsets = UIEdgeInsets(top: 24, left: 20, bottom: 24, right: 20)
-    static let estimatedSize = CGSize(width: 150, height: 200)
 }
 
 class OrdersViewController: UIViewController {
@@ -18,7 +17,7 @@ class OrdersViewController: UIViewController {
     //MARK: - Private properties
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var collectionViewLayout: UICollectionViewFlowLayout!
-    
+
     //MARK: - Public properties
     var viewModel: OrdersViewModel!
     
@@ -26,6 +25,8 @@ class OrdersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        viewModel.inputs.ordersVCViewDidLoad()
     }
     
     //MARK: - Private methods
@@ -37,25 +38,24 @@ class OrdersViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerWithNib(cellType: OrderCollectionViewCell.self)
-     
-        collectionViewLayout.estimatedItemSize = LayoutValues.estimatedSize
-        collectionViewLayout.itemSize = UICollectionViewFlowLayout.automaticSize
     }
 }
 
 //MARK: - UICollectionViewDelegate
 extension OrdersViewController: UICollectionViewDelegate {
-    
+   
 }
 
 //MARK: - UICollectionViewDatasource
 extension OrdersViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel.outputs.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: OrderCollectionViewCell.self)
+        cell.viewModel = viewModel.outputs.items[indexPath.row]
+        cell.decorator(with: [AppStyle.cornerRadiusDecorator, AppStyle.shadowDecorator])
         return cell
     }
 }
@@ -65,12 +65,12 @@ extension OrdersViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return LayoutValues.sectionInsets
     }
-//    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let space: CGFloat = LayoutValues.sectionInsets.left + LayoutValues.sectionInsets.right + 12
-//         let size: CGFloat = (collectionView.frame.size.width / 2.0 ) - 2 * space
-//         return CGSize(width: size, height: size)
-//     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let space: CGFloat = LayoutValues.sectionInsets.left + LayoutValues.sectionInsets.right
+         let size: CGFloat = (collectionView.frame.size.width / 2.0 ) - space
+         return CGSize(width: size, height: size + 50)
+     }
 }
 
 //MARK: - Bind viewModel

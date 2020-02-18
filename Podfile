@@ -10,4 +10,5 @@ target 'FlowerFair' do
   pod 'RxSwift', '~> 4.4.0'
   pod 'RxCocoa', '~> 4.4.0'
   pod 'RxOptional', '~> 3.6.2'
+  pod 'PINRemoteImage'
 end
