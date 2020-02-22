@@ -19,7 +19,7 @@ struct AppStyle {
     
     static func setupAppearance() {
         UINavigationBar.appearance().backgroundColor = Asset.Colors.background.color
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: Font.regular(size: .medium)]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: Font.regular(size: .mediumLarge)]
         UINavigationBar.appearance().prefersLargeTitles = true
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.font: Font.regular(size: .superLarge)]
     }

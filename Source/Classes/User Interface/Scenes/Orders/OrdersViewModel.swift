@@ -11,11 +11,13 @@ import RxSwift
 
 protocol OrdersViewModelInputs {
     func ordersVCViewDidLoad()
+    func didSelectItem(at index: Int)
 }
 
 protocol OrdersViewModelOutputs {
     var items: [OrderCollectionViewCellViewModel] { get }
     var shouldReloadData: Observable<Void> { get }
+    var moneySumViewModel: MoneySumViewModel? { get }
 }
 
 protocol OrdersViewModel {
@@ -32,6 +34,8 @@ final class OrdersViewModelImpl: OrdersViewModel {
     var shouldReloadData: Observable<Void> {
         return _shouldReloadData.asObservable().skip(1).observeOn(MainScheduler.instance)
     }
+    var moneySumViewModel: MoneySumViewModel?
+    
     //MARK: - Private properties
     private let _shouldReloadData: BehaviorSubject<Void> = BehaviorSubject<Void>(value: ())
     private let orderService: OrderService
@@ -41,16 +45,24 @@ final class OrdersViewModelImpl: OrdersViewModel {
     }
     
     func ordersVCViewDidLoad() {
+        var prices = 0
         orderService.loadOrders(succes: { [weak self] result in
             guard let self = self else { return }
             let orders = result.map { (order: Order) -> OrderCollectionViewCellViewModel in
-                return OrderCollectionViewCellViewModel(title: order.title, price: order.price, imageURL: order.imageUrl)
+                prices += order.price
+                let orders = OrderCollectionViewCellViewModel(title: order.title, price: order.price, imageURL: order.imageUrl)
+                return orders
             }
             self.items = orders
+            self.moneySumViewModel = MoneySumViewModel(priceSum: prices)
             self._shouldReloadData.onNext(())
         }) { error in
             print(error)
         }
+    }
+    
+    func didSelectItem(at index: Int) {
+        
     }
 }
 

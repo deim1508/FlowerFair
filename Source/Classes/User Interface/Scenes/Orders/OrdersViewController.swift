@@ -18,6 +18,11 @@ class OrdersViewController: UIViewController {
     //MARK: - Private properties
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var collectionViewLayout: UICollectionViewFlowLayout!
+    private let moneyBoxView: MoneySumView = {
+        let moneyBoxView = MoneySumView.autoLayout()
+        moneyBoxView.isHidden = true
+        return moneyBoxView
+    }()
     private let disposeBag = DisposeBag()
 
     //MARK: - Public properties
@@ -29,6 +34,7 @@ class OrdersViewController: UIViewController {
         setupUI()
         
         viewModel.inputs.ordersVCViewDidLoad()
+        setupNavBar()
     }
     
     //MARK: - Private methods
@@ -41,11 +47,23 @@ class OrdersViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.registerWithNib(cellType: OrderCollectionViewCell.self)
     }
+    
+    private func setupNavBar() {
+        guard let navBar = navigationController?.navigationBar else { return }
+        navBar.addSubview(moneyBoxView)
+        
+        NSLayoutConstraint.activate([
+            moneyBoxView.trailingAnchor.constraint(equalTo: navBar.trailingAnchor, constant: -16),
+            moneyBoxView.bottomAnchor.constraint(equalTo: navBar.bottomAnchor, constant: -12)
+        ])
+    }
 }
 
 //MARK: - UICollectionViewDelegate
 extension OrdersViewController: UICollectionViewDelegate {
-   
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
 }
 
 //MARK: - UICollectionViewDatasource
@@ -80,6 +98,8 @@ extension OrdersViewController: BindableType {
     func bindViewModel() {
         viewModel.outputs.shouldReloadData.bind { [unowned self] _ in
             self.collectionView.reloadData()
+            self.moneyBoxView.viewModel = self.viewModel.outputs.moneySumViewModel
+            self.moneyBoxView.isHidden = false
         }.disposed(by: disposeBag)
     }
 }
