@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.0.0)
   - PINCache (3.0.1-beta.8):
     - PINCache/Arc-exception-safe (= 3.0.1-beta.8)
     - PINCache/Core (= 3.0.1-beta.8)
@@ -25,6 +26,7 @@ PODS:
   - SwiftGen (6.1.0)
 
 DEPENDENCIES:
+  - Alamofire
   - PINRemoteImage
   - RxCocoa (~> 4.4.0)
   - RxOptional (~> 3.6.2)
@@ -33,6 +35,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - PINCache
     - PINOperation
     - PINRemoteImage
@@ -43,6 +46,7 @@ SPEC REPOS:
     - SwiftGen
 
 SPEC CHECKSUMS:
+  Alamofire: 58ff2bfb8daaacaa233d5c36e37b10a5248f59b1
   PINCache: 534fd41d358d828dfdf227a0d327f3673a65e20b
   PINOperation: 24b774353ca248fcf87d67b2d61eef42087c125a
   PINRemoteImage: e2b89e19fb6e77ffc099f9d9f3b3fe1745e3f9f9
@@ -52,6 +56,6 @@ SPEC CHECKSUMS:
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
 
-PODFILE CHECKSUM: 6c95edb1e922947df03792f6e7df368c046ae779
+PODFILE CHECKSUM: 4815bad083cf20445ed087e6d3195c8eb55895bc
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.8.3

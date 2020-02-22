@@ -12,7 +12,16 @@ import PINRemoteImage
 struct OrderCollectionViewCellViewModel {
     let title: String
     let price: String
-    let imageURL: URL?
+    var imageURL: URL?
+    
+    init(title: String, price: Int, imageURL: String?) {
+        self.title = title
+        self.price = "\(price) RON"
+        self.imageURL = nil
+        if let imageURL = imageURL {
+            self.imageURL = URL(string: imageURL)
+        }
+    }
 }
 
 class OrderCollectionViewCell: UICollectionViewCell {

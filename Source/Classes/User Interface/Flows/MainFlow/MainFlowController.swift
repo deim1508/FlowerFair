@@ -24,14 +24,13 @@ class MainFlowController: FlowController {
     }
     
     func initMainViewController() {
+        let orderService = OrderServiceImpl()
         ordersController = StoryboardScene.OrdersViewController.initialScene.instantiate()
-        let ordersViewModel = OrdersViewModelImpl()
+        let ordersViewModel = OrdersViewModelImpl(orderService: orderService)
         ordersController.bind(viewModel: ordersViewModel)
     }
     
     func firstScreen() -> UIViewController {
         return ordersController
     }
-    
-    
 }

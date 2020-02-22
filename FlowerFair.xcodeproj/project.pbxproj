@@ -33,6 +33,13 @@
 		22DDA8A023FBF77E009B3D8C /* CornerRadiusDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA89F23FBF77E009B3D8C /* CornerRadiusDecorator.swift */; };
 		22DDA8A223FC0860009B3D8C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA8A123FC0860009B3D8C /* Font.swift */; };
 		22DDA8A423FC200A009B3D8C /* ShadowDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDA8A323FC200A009B3D8C /* ShadowDecorator.swift */; };
+		37A309F02401087800740B82 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A309EF2401087800740B82 /* Order.swift */; };
+		37A309F324010BAA00740B82 /* OrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A309F224010BAA00740B82 /* OrderService.swift */; };
+		37A309F724010D0200740B82 /* NetworkConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A309F624010D0200740B82 /* NetworkConstans.swift */; };
+		37A309F924010EC100740B82 /* RequestRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A309F824010EC100740B82 /* RequestRepresentable.swift */; };
+		37A309FB2401100600740B82 /* OrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A309FA2401100600740B82 /* OrderRequest.swift */; };
+		37A309FD240111C700740B82 /* BackendManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A309FC240111C700740B82 /* BackendManager.swift */; };
+		37A309FF240119F100740B82 /* BackendError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A309FE240119F100740B82 /* BackendError.swift */; };
 		3F0D12D8F19E30463BFB71F0 /* Pods_FlowerFair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F197A4850BF7D239CE36CB /* Pods_FlowerFair.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +73,13 @@
 		22DDA8A123FC0860009B3D8C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		22DDA8A323FC200A009B3D8C /* ShadowDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDecorator.swift; sourceTree = "<group>"; };
 		35F197A4850BF7D239CE36CB /* Pods_FlowerFair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlowerFair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37A309EF2401087800740B82 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		37A309F224010BAA00740B82 /* OrderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderService.swift; sourceTree = "<group>"; };
+		37A309F624010D0200740B82 /* NetworkConstans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstans.swift; sourceTree = "<group>"; };
+		37A309F824010EC100740B82 /* RequestRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestRepresentable.swift; sourceTree = "<group>"; };
+		37A309FA2401100600740B82 /* OrderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRequest.swift; sourceTree = "<group>"; };
+		37A309FC240111C700740B82 /* BackendManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendManager.swift; sourceTree = "<group>"; };
+		37A309FE240119F100740B82 /* BackendError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendError.swift; sourceTree = "<group>"; };
 		A4194FB8BD212DE97695A81C /* Pods-FlowerFair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowerFair.release.xcconfig"; path = "Target Support Files/Pods-FlowerFair/Pods-FlowerFair.release.xcconfig"; sourceTree = "<group>"; };
 		C5359F765F6941295E7BBFEF /* Pods-FlowerFair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowerFair.debug.xcconfig"; path = "Target Support Files/Pods-FlowerFair/Pods-FlowerFair.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,6 +193,8 @@
 		22DDA86A23FAC0BC009B3D8C /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				37A309F124010B9900740B82 /* Services */,
+				37A309EE2401079600740B82 /* Models */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -186,6 +202,8 @@
 		22DDA86B23FAC0C7009B3D8C /* Data Access */ = {
 			isa = PBXGroup;
 			children = (
+				37A309F524010CC200740B82 /* Requests */,
+				37A309F424010C9700740B82 /* Network */,
 			);
 			path = "Data Access";
 			sourceTree = "<group>";
@@ -324,6 +342,41 @@
 				22DDA8A323FC200A009B3D8C /* ShadowDecorator.swift */,
 			);
 			path = Decorator;
+			sourceTree = "<group>";
+		};
+		37A309EE2401079600740B82 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				37A309EF2401087800740B82 /* Order.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		37A309F124010B9900740B82 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				37A309F224010BAA00740B82 /* OrderService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		37A309F424010C9700740B82 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				37A309F624010D0200740B82 /* NetworkConstans.swift */,
+				37A309F824010EC100740B82 /* RequestRepresentable.swift */,
+				37A309FC240111C700740B82 /* BackendManager.swift */,
+				37A309FE240119F100740B82 /* BackendError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		37A309F524010CC200740B82 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				37A309FA2401100600740B82 /* OrderRequest.swift */,
+			);
+			path = Requests;
 			sourceTree = "<group>";
 		};
 		AACF75F36C5DDEDF195E13AA /* Frameworks */ = {
@@ -482,14 +535,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				22DDA87023FAC6A8009B3D8C /* BindableType.swift in Sources */,
+				37A309FF240119F100740B82 /* BackendError.swift in Sources */,
 				22DDA89E23FBF713009B3D8C /* BorderDecorator.swift in Sources */,
+				37A309F02401087800740B82 /* Order.swift in Sources */,
 				22DDA84C23FAB09C009B3D8C /* AppDelegate.swift in Sources */,
 				22DDA89C23FBF638009B3D8C /* ViewDecorator.swift in Sources */,
 				22DDA8A023FBF77E009B3D8C /* CornerRadiusDecorator.swift in Sources */,
 				22DDA88623FAEF88009B3D8C /* Strings.swift in Sources */,
 				22DDA87923FAD24C009B3D8C /* NavigationFlowController.swift in Sources */,
+				37A309F324010BAA00740B82 /* OrderService.swift in Sources */,
 				22DDA88023FADA74009B3D8C /* OrdersViewController.swift in Sources */,
+				37A309FB2401100600740B82 /* OrderRequest.swift in Sources */,
 				22DDA87C23FAD98F009B3D8C /* MainFlowController.swift in Sources */,
+				37A309F724010D0200740B82 /* NetworkConstans.swift in Sources */,
 				22DDA88823FAEF88009B3D8C /* Storyboards.swift in Sources */,
 				22DDA89223FBEDE2009B3D8C /* OrderCollectionViewCell.swift in Sources */,
 				22DDA88C23FBEAA9009B3D8C /* OrdersViewModel.swift in Sources */,
@@ -497,6 +555,8 @@
 				22DDA89623FBEF96009B3D8C /* UICollectionView+Nib.swift in Sources */,
 				22DDA8A223FC0860009B3D8C /* Font.swift in Sources */,
 				22DDA87723FACA43009B3D8C /* FlowController.swift in Sources */,
+				37A309F924010EC100740B82 /* RequestRepresentable.swift in Sources */,
+				37A309FD240111C700740B82 /* BackendManager.swift in Sources */,
 				22DDA8A423FC200A009B3D8C /* ShadowDecorator.swift in Sources */,
 				22DDA88723FAEF88009B3D8C /* Assets.swift in Sources */,
 				22DDA89A23FBF582009B3D8C /* AppStyle.swift in Sources */,

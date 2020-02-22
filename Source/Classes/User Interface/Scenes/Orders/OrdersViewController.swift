@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 private enum LayoutValues {
     static let sectionInsets = UIEdgeInsets(top: 24, left: 16, bottom: 24, right: 16)
@@ -17,6 +18,7 @@ class OrdersViewController: UIViewController {
     //MARK: - Private properties
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var collectionViewLayout: UICollectionViewFlowLayout!
+    private let disposeBag = DisposeBag()
 
     //MARK: - Public properties
     var viewModel: OrdersViewModel!
@@ -76,6 +78,8 @@ extension OrdersViewController: UICollectionViewDelegateFlowLayout {
 //MARK: - Bind viewModel
 extension OrdersViewController: BindableType {
     func bindViewModel() {
-        
+        viewModel.outputs.shouldReloadData.bind { [unowned self] _ in
+            self.collectionView.reloadData()
+        }.disposed(by: disposeBag)
     }
 }
