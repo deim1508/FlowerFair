@@ -17,6 +17,11 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: LaunchScreen.self)
   }
+  internal enum OrderDetailViewController: StoryboardType {
+    internal static let storyboardName = "OrderDetailViewController"
+
+    internal static let initialScene = InitialSceneType<FlowerFair.OrderDetailViewController>(storyboard: OrderDetailViewController.self)
+  }
   internal enum OrdersViewController: StoryboardType {
     internal static let storyboardName = "OrdersViewController"
 

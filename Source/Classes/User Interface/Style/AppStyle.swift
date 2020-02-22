@@ -15,6 +15,7 @@ enum FontType {
 struct AppStyle {
     static let shadowDecorator = ShadowDecorator(radius: 12)
     static let cornerRadiusDecorator = CornerRadiusDecorator(radius: 12)
+    static let cornerRadius16Decorator = CornerRadiusDecorator(radius: 16)
     static let borderDecorator = BorderDecorator()
     
     static func setupAppearance() {

@@ -6,3 +6,6 @@
 "invalid_url" = "Invalid URL!";
 "invalid_data" = "There is some problem with the data!";
 "general_error" = "Sorry, something went wrong!";
+
+//MARK: - OrderDetail
+"deliver_to" = "Deliver to:";

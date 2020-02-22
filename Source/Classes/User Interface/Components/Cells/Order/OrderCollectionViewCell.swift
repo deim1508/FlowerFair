@@ -10,11 +10,13 @@ import UIKit
 import PINRemoteImage
 
 struct OrderCollectionViewCellViewModel {
+    let orderId: Int
     let title: String
     let price: String
     var imageURL: URL?
     
-    init(title: String, price: Int, imageURL: String?) {
+    init(id: Int, title: String, price: Int, imageURL: String?) {
+        orderId = id
         self.title = title
         self.price = "\(price) RON"
         self.imageURL = nil
@@ -66,6 +68,6 @@ class OrderCollectionViewCell: UICollectionViewCell {
         }
         titleLabel.text = viewModel.title
         priceLabel.text = viewModel.price
-        imageView.pin_setImage(from: viewModel.imageURL, placeholderImage: Asset.Images.orderPlaceholder1.image)
+        imageView.pin_setImage(from: viewModel.imageURL, placeholderImage: Asset.Images._3.image)
     }
 }

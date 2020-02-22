@@ -9,6 +9,10 @@
 import Foundation
 import RxSwift
 
+protocol OrdersViewModelFlowDelegate: class {
+    func didTapOrder(on order: Order)
+}
+
 protocol OrdersViewModelInputs {
     func ordersVCViewDidLoad()
     func didSelectItem(at index: Int)
@@ -23,12 +27,14 @@ protocol OrdersViewModelOutputs {
 protocol OrdersViewModel {
     var inputs: OrdersViewModelInputs { get }
     var outputs: OrdersViewModelOutputs { get }
+    var flowDelegate: OrdersViewModelFlowDelegate? { get set }
 }
 
 final class OrdersViewModelImpl: OrdersViewModel {
     //MARK: - Properties
     var inputs: OrdersViewModelInputs { return self }
     var outputs: OrdersViewModelOutputs { return self }
+    weak var flowDelegate: OrdersViewModelFlowDelegate?
     
     var items: [OrderCollectionViewCellViewModel] = []
     var shouldReloadData: Observable<Void> {
@@ -39,6 +45,7 @@ final class OrdersViewModelImpl: OrdersViewModel {
     //MARK: - Private properties
     private let _shouldReloadData: BehaviorSubject<Void> = BehaviorSubject<Void>(value: ())
     private let orderService: OrderService
+    private var orders: [Order] = []
     
     init(orderService: OrderService) {
         self.orderService = orderService
@@ -46,11 +53,13 @@ final class OrdersViewModelImpl: OrdersViewModel {
     
     func ordersVCViewDidLoad() {
         var prices = 0
+        orders = []
         orderService.loadOrders(succes: { [weak self] result in
             guard let self = self else { return }
             let orders = result.map { (order: Order) -> OrderCollectionViewCellViewModel in
                 prices += order.price
-                let orders = OrderCollectionViewCellViewModel(title: order.title, price: order.price, imageURL: order.imageUrl)
+                self.orders.append(order)
+                let orders = OrderCollectionViewCellViewModel(id: order.orderId, title: order.title, price: order.price, imageURL: order.imageUrl?.first)
                 return orders
             }
             self.items = orders
@@ -62,7 +71,12 @@ final class OrdersViewModelImpl: OrdersViewModel {
     }
     
     func didSelectItem(at index: Int) {
+        let selectedOrder = orders.first { order -> Bool in
+            order.orderId == self.items[index].orderId
+            }
         
+        guard let order = selectedOrder else { return }
+        flowDelegate?.didTapOrder(on: order)
     }
 }
 

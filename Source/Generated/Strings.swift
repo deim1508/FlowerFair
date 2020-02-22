@@ -10,6 +10,8 @@ import Foundation
 
 // swiftlint:disable function_parameter_count identifier_name line_length type_body_length
 internal enum L10n {
+  /// Deliver to:
+  internal static let deliverTo = L10n.tr("Localizable", "deliver_to")
   /// Sorry, something went wrong!
   internal static let generalError = L10n.tr("Localizable", "general_error")
   /// There is some problem with the data!

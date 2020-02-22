@@ -61,13 +61,6 @@ class MoneySumView: UIView {
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
             stackView.topAnchor.constraint(equalTo: topAnchor),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
-//            moneyBoxImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            moneyBoxImageView.heightAnchor.constraint(equalTo: moneyBoxImageView.widthAnchor),
-//            moneyBoxImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-//
-//            moneySumLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
-//            moneySumLabel.centerYAnchor.constraint(equalTo: moneyBoxImageView.centerYAnchor),
-//            moneySumLabel.leadingAnchor.constraint(equalTo: moneyBoxImageView.trailingAnchor, constant: 4)
         ]
         NSLayoutConstraint.activate(constraints)
     }

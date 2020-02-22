@@ -29,12 +29,23 @@ class OrdersViewController: UIViewController {
     var viewModel: OrdersViewModel!
     
     //MARK: - Lifecycle methods
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(animated)
+        guard (viewModel.outputs.moneySumViewModel != nil) else { return }
+        showMoneyBox(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         
         viewModel.inputs.ordersVCViewDidLoad()
         setupNavBar()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        showMoneyBox(false)
     }
     
     //MARK: - Private methods
@@ -57,12 +68,18 @@ class OrdersViewController: UIViewController {
             moneyBoxView.bottomAnchor.constraint(equalTo: navBar.bottomAnchor, constant: -12)
         ])
     }
+    
+    private func showMoneyBox(_ show: Bool) {
+        UIView.animate(withDuration: 0.2) {
+            self.moneyBoxView.alpha = show ? 1.0 : 0.0
+        }
+    }
 }
 
 //MARK: - UICollectionViewDelegate
 extension OrdersViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        viewModel.inputs.didSelectItem(at: indexPath.row)
     }
 }
 
@@ -99,6 +116,7 @@ extension OrdersViewController: BindableType {
         viewModel.outputs.shouldReloadData.bind { [unowned self] _ in
             self.collectionView.reloadData()
             self.moneyBoxView.viewModel = self.viewModel.outputs.moneySumViewModel
+            self.showMoneyBox(true)
             self.moneyBoxView.isHidden = false
         }.disposed(by: disposeBag)
     }

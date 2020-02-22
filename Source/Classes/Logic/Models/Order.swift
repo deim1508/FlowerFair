@@ -14,7 +14,7 @@ struct Order: Codable {
     let description: String?
     let price: Int
     let deliverTo: String
-    let imageUrl: String?
+    let imageUrl: [String]?
 }
 
 extension Order {

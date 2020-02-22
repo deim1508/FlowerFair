@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hb2-wO-Mk0">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Order Detail View Controller-->
+        <scene sceneID="Nwv-qQ-vaD">
+            <objects>
+                <viewController id="hb2-wO-Mk0" customClass="OrderDetailViewController" customModule="FlowerFair" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ils-RZ-aEP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JId-XW-ZBg">
+                                <rect key="frame" x="0.0" y="44" width="414" height="128"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIb-7t-d85">
+                                        <rect key="frame" x="8" y="-22" width="406" height="304"/>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="h5f-tz-hRJ"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="sMY-XR-bVc"/>
+                                    </scrollView>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="QGa-0u-xns">
+                                        <rect key="frame" x="187.5" y="91" width="39" height="37"/>
+                                    </pageControl>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="sIb-7t-d85" firstAttribute="width" secondItem="JId-XW-ZBg" secondAttribute="width" id="9x4-d7-XVe"/>
+                                    <constraint firstItem="sIb-7t-d85" firstAttribute="height" secondItem="JId-XW-ZBg" secondAttribute="height" id="ASQ-eF-hih"/>
+                                    <constraint firstAttribute="height" priority="250" constant="128" id="Akk-oV-Do7"/>
+                                    <constraint firstItem="sIb-7t-d85" firstAttribute="top" secondItem="JId-XW-ZBg" secondAttribute="top" id="FCT-Cs-Vf4"/>
+                                    <constraint firstAttribute="bottom" secondItem="sIb-7t-d85" secondAttribute="bottom" id="Vd7-3K-AbS"/>
+                                    <constraint firstItem="QGa-0u-xns" firstAttribute="centerX" secondItem="JId-XW-ZBg" secondAttribute="centerX" id="Ymy-SL-ATI"/>
+                                    <constraint firstAttribute="bottom" secondItem="QGa-0u-xns" secondAttribute="bottom" id="ulP-3I-kMH"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5z-Eg-z29" customClass="OrderDetailFooterView" customModule="FlowerFair" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="846" width="414" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="50" id="B7f-0L-18A"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VBo-IT-G6n" firstAttribute="trailing" secondItem="M5z-Eg-z29" secondAttribute="trailing" id="0IF-tV-mly"/>
+                            <constraint firstItem="sIb-7t-d85" firstAttribute="leading" secondItem="VBo-IT-G6n" secondAttribute="leading" id="7hx-qF-ZLY"/>
+                            <constraint firstItem="M5z-Eg-z29" firstAttribute="leading" secondItem="VBo-IT-G6n" secondAttribute="leading" id="9iK-Nl-OsA"/>
+                            <constraint firstItem="JId-XW-ZBg" firstAttribute="top" secondItem="Ils-RZ-aEP" secondAttribute="top" constant="44" id="Gi1-Xx-dGU"/>
+                            <constraint firstItem="VBo-IT-G6n" firstAttribute="trailing" secondItem="JId-XW-ZBg" secondAttribute="trailing" id="V3o-RU-Wi6"/>
+                            <constraint firstItem="JId-XW-ZBg" firstAttribute="leading" secondItem="VBo-IT-G6n" secondAttribute="leading" id="bAx-gE-V0s"/>
+                            <constraint firstItem="M5z-Eg-z29" firstAttribute="bottom" secondItem="Ils-RZ-aEP" secondAttribute="bottom" id="d0d-dw-s1l"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VBo-IT-G6n"/>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="JId-XW-ZBg" id="bbe-XF-twi"/>
+                        <outlet property="footerView" destination="M5z-Eg-z29" id="59F-JJ-6XS"/>
+                        <outlet property="pageControl" destination="QGa-0u-xns" id="Wkk-T3-P0e"/>
+                        <outlet property="scrollView" destination="sIb-7t-d85" id="dZV-N4-wyY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vew-xe-NRB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-88.405797101449281" y="164.73214285714286"/>
+        </scene>
+    </scenes>
+</document>

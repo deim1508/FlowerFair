@@ -42,6 +42,12 @@
 		37A309FF240119F100740B82 /* BackendError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A309FE240119F100740B82 /* BackendError.swift */; };
 		37A30A032401466500740B82 /* MoneySumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A30A022401466400740B82 /* MoneySumView.swift */; };
 		37A30A052401471400740B82 /* UIView+snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A30A042401471400740B82 /* UIView+snap.swift */; };
+		37A30A0824017F3400740B82 /* OrderDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37A30A0724017F3400740B82 /* OrderDetailViewController.storyboard */; };
+		37A30A0A240180A400740B82 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A30A09240180A400740B82 /* OrderDetailViewController.swift */; };
+		37A30A0C240180D000740B82 /* OrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A30A0B240180D000740B82 /* OrderDetailViewModel.swift */; };
+		37A30A102401BCCC00740B82 /* OrderDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A30A0F2401BCCC00740B82 /* OrderDetailFooterView.xib */; };
+		37A30A122401BCF100740B82 /* OrderDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A30A112401BCF100740B82 /* OrderDetailFooterView.swift */; };
+		37A30A142401BE5800740B82 /* UIView+loadXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A30A132401BE5800740B82 /* UIView+loadXib.swift */; };
 		3F0D12D8F19E30463BFB71F0 /* Pods_FlowerFair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F197A4850BF7D239CE36CB /* Pods_FlowerFair.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +90,12 @@
 		37A309FE240119F100740B82 /* BackendError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendError.swift; sourceTree = "<group>"; };
 		37A30A022401466400740B82 /* MoneySumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySumView.swift; sourceTree = "<group>"; };
 		37A30A042401471400740B82 /* UIView+snap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+snap.swift"; sourceTree = "<group>"; };
+		37A30A0724017F3400740B82 /* OrderDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderDetailViewController.storyboard; sourceTree = "<group>"; };
+		37A30A09240180A400740B82 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
+		37A30A0B240180D000740B82 /* OrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModel.swift; sourceTree = "<group>"; };
+		37A30A0F2401BCCC00740B82 /* OrderDetailFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailFooterView.xib; sourceTree = "<group>"; };
+		37A30A112401BCF100740B82 /* OrderDetailFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailFooterView.swift; sourceTree = "<group>"; };
+		37A30A132401BE5800740B82 /* UIView+loadXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+loadXib.swift"; sourceTree = "<group>"; };
 		A4194FB8BD212DE97695A81C /* Pods-FlowerFair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowerFair.release.xcconfig"; path = "Target Support Files/Pods-FlowerFair/Pods-FlowerFair.release.xcconfig"; sourceTree = "<group>"; };
 		C5359F765F6941295E7BBFEF /* Pods-FlowerFair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowerFair.debug.xcconfig"; path = "Target Support Files/Pods-FlowerFair/Pods-FlowerFair.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -279,6 +291,7 @@
 		22DDA87D23FADA48009B3D8C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				37A30A0624017F1100740B82 /* OrderDetail */,
 				22DDA87E23FADA55009B3D8C /* Orders */,
 			);
 			path = Scenes;
@@ -325,6 +338,7 @@
 			children = (
 				22DDA89523FBEF96009B3D8C /* UICollectionView+Nib.swift */,
 				37A30A042401471400740B82 /* UIView+snap.swift */,
+				37A30A132401BE5800740B82 /* UIView+loadXib.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -388,9 +402,37 @@
 		37A30A01240145BB00740B82 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				37A30A022401466400740B82 /* MoneySumView.swift */,
+				37A30A0E2401BC9B00740B82 /* OrderDetailFooter */,
+				37A30A0D2401BC8700740B82 /* MoneySum */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		37A30A0624017F1100740B82 /* OrderDetail */ = {
+			isa = PBXGroup;
+			children = (
+				37A30A0724017F3400740B82 /* OrderDetailViewController.storyboard */,
+				37A30A09240180A400740B82 /* OrderDetailViewController.swift */,
+				37A30A0B240180D000740B82 /* OrderDetailViewModel.swift */,
+			);
+			path = OrderDetail;
+			sourceTree = "<group>";
+		};
+		37A30A0D2401BC8700740B82 /* MoneySum */ = {
+			isa = PBXGroup;
+			children = (
+				37A30A022401466400740B82 /* MoneySumView.swift */,
+			);
+			path = MoneySum;
+			sourceTree = "<group>";
+		};
+		37A30A0E2401BC9B00740B82 /* OrderDetailFooter */ = {
+			isa = PBXGroup;
+			children = (
+				37A30A0F2401BCCC00740B82 /* OrderDetailFooterView.xib */,
+				37A30A112401BCF100740B82 /* OrderDetailFooterView.swift */,
+			);
+			path = OrderDetailFooter;
 			sourceTree = "<group>";
 		};
 		AACF75F36C5DDEDF195E13AA /* Frameworks */ = {
@@ -472,9 +514,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				22DDA89323FBEDE2009B3D8C /* OrderCollectionViewCell.xib in Resources */,
+				37A30A0824017F3400740B82 /* OrderDetailViewController.storyboard in Resources */,
 				22DDA88A23FBE944009B3D8C /* OrdersViewController.storyboard in Resources */,
 				22DDA86723FABEE0009B3D8C /* Localizable.strings in Resources */,
 				22DDA85823FAB09D009B3D8C /* LaunchScreen.storyboard in Resources */,
+				37A30A102401BCCC00740B82 /* OrderDetailFooterView.xib in Resources */,
 				22DDA86423FABEB3009B3D8C /* Colors.xcassets in Resources */,
 				22DDA85523FAB09D009B3D8C /* Preview Assets.xcassets in Resources */,
 				22DDA85223FAB09D009B3D8C /* Images.xcassets in Resources */,
@@ -558,7 +602,10 @@
 				22DDA89C23FBF638009B3D8C /* ViewDecorator.swift in Sources */,
 				22DDA8A023FBF77E009B3D8C /* CornerRadiusDecorator.swift in Sources */,
 				22DDA88623FAEF88009B3D8C /* Strings.swift in Sources */,
+				37A30A122401BCF100740B82 /* OrderDetailFooterView.swift in Sources */,
+				37A30A0C240180D000740B82 /* OrderDetailViewModel.swift in Sources */,
 				22DDA87923FAD24C009B3D8C /* NavigationFlowController.swift in Sources */,
+				37A30A0A240180A400740B82 /* OrderDetailViewController.swift in Sources */,
 				37A309F324010BAA00740B82 /* OrderService.swift in Sources */,
 				22DDA88023FADA74009B3D8C /* OrdersViewController.swift in Sources */,
 				37A309FB2401100600740B82 /* OrderRequest.swift in Sources */,
@@ -567,6 +614,7 @@
 				22DDA88823FAEF88009B3D8C /* Storyboards.swift in Sources */,
 				22DDA89223FBEDE2009B3D8C /* OrderCollectionViewCell.swift in Sources */,
 				22DDA88C23FBEAA9009B3D8C /* OrdersViewModel.swift in Sources */,
+				37A30A142401BE5800740B82 /* UIView+loadXib.swift in Sources */,
 				22DDA87423FAC900009B3D8C /* RootFlowController.swift in Sources */,
 				22DDA89623FBEF96009B3D8C /* UICollectionView+Nib.swift in Sources */,
 				22DDA8A223FC0860009B3D8C /* Font.swift in Sources */,

@@ -10,9 +10,11 @@ import UIKit
 
 class MainFlowController: FlowController {
     private var ordersController: OrdersViewController!
+    private var navigationController: UINavigationController!
     
     var mainViewController: UIViewController? {
-        return UINavigationController(rootViewController: ordersController)
+        navigationController = UINavigationController(rootViewController: ordersController)
+        return navigationController
     }
     
     var flowPresentation: FlowControllerPresentation
@@ -27,10 +29,20 @@ class MainFlowController: FlowController {
         let orderService = OrderServiceImpl()
         ordersController = StoryboardScene.OrdersViewController.initialScene.instantiate()
         let ordersViewModel = OrdersViewModelImpl(orderService: orderService)
+        ordersViewModel.flowDelegate = self
         ordersController.bind(viewModel: ordersViewModel)
     }
     
     func firstScreen() -> UIViewController {
         return ordersController
+    }
+}
+
+//MARK: - OrdersViewModelFlowDelegate
+extension MainFlowController: OrdersViewModelFlowDelegate {
+    func didTapOrder(on order: Order) {
+        let orderDetailVC = StoryboardScene.OrderDetailViewController.initialScene.instantiate()
+        orderDetailVC.bind(viewModel: OrderDetailViewModelImpl(order: order))
+        navigationController.pushViewController(orderDetailVC, animated: true)
     }
 }
