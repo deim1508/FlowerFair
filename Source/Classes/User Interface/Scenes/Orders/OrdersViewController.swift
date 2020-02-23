@@ -14,6 +14,8 @@ private enum LayoutValues {
 }
 
 class OrdersViewController: UIViewController {
+    //MARK: - Public properties
+    var viewModel: OrdersViewModel!
     
     //MARK: - Private properties
     @IBOutlet private weak var collectionView: UICollectionView!
@@ -25,9 +27,6 @@ class OrdersViewController: UIViewController {
     }()
     private let disposeBag = DisposeBag()
 
-    //MARK: - Public properties
-    var viewModel: OrdersViewModel!
-    
     //MARK: - Lifecycle methods
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
@@ -92,7 +91,6 @@ extension OrdersViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: OrderCollectionViewCell.self)
         cell.viewModel = viewModel.outputs.items[indexPath.row]
-        cell.decorator(with: [AppStyle.cornerRadiusDecorator, AppStyle.shadowDecorator])
         return cell
     }
 }
@@ -117,6 +115,7 @@ extension OrdersViewController: BindableType {
             self.collectionView.reloadData()
         }.disposed(by: disposeBag)
         
+        //using unowned self and weak viewModel to avoid retain cycle
         viewModel.outputs.shouldShowMoneyBox.bind { [unowned self, weak viewModel] isVisibleMoneyBox in
             guard let viewModel = viewModel else { return }
             self.moneyBoxView.viewModel = viewModel.outputs.moneySumViewModel

@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderDetailFooterView" customModule="FlowerFair" customModuleProvider="target">
             <connections>
-                <outlet property="orderDataLabel" destination="FcT-2S-zgU" id="LO9-kc-74D"/>
+                <outlet property="orderDateLabel" destination="FcT-2S-zgU" id="LO9-kc-74D"/>
                 <outlet property="priceContainerView" destination="4uV-be-Koo" id="LMD-64-kGe"/>
                 <outlet property="priceLabel" destination="ALM-lI-Dck" id="Oob-gt-vi0"/>
             </connections>

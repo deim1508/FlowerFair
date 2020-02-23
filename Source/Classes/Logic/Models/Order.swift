@@ -14,7 +14,8 @@ struct Order: Codable {
     let description: String?
     let price: Int
     let deliverTo: String
-    let imageUrl: [String]?
+    let imageUrls: [String]?
+    let date: Int
 }
 
 extension Order {
@@ -24,6 +25,7 @@ extension Order {
         case description
         case price
         case deliverTo = "deliver_to"
-        case imageUrl = "image_url"
+        case imageUrls = "image_urls"
+        case date
     }
 }

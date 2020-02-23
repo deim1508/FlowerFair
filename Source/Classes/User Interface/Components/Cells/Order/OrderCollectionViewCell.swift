@@ -10,22 +10,21 @@ import UIKit
 import PINRemoteImage
 
 class OrderCollectionViewCell: UICollectionViewCell {
-
+    
+    //MARK: - Public properties
+    var viewModel: OrderCollectionCellViewModel? {
+        didSet { bindViewModel() }
+    }
+    
     //MARK: - Private properties
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
     
-    //MARK: - Public properties
-    var viewModel: OrderCollectionCellViewModel? {
-        didSet {
-            bindViewModel()
-        }
-    }
-    
     //MARK: - Lifecycle methods
     override func awakeFromNib() {
         super.awakeFromNib()
+        decorator(with: [AppStyle.cornerRadiusDecorator, AppStyle.shadowDecorator])
         
         imageView.clipsToBounds = true
         

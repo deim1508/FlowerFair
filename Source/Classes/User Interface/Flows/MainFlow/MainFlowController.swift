@@ -50,4 +50,10 @@ extension MainFlowController: OrdersViewModelFlowDelegate {
         orderDetailVC.bind(viewModel: OrderDetailViewModelImpl(order: order))
         navigationController.pushViewController(orderDetailVC, animated: true)
     }
+    
+    func showLoadOrdersFailedAlert() {
+        let alert = UIAlertController(title: L10n.alertTitleSorry, message: L10n.loadOrdersErrorMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: L10n.ok, style: .default, handler: nil))
+        navigationController.present(alert, animated: true)
+    }
 }

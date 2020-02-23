@@ -24,6 +24,7 @@ internal enum Asset {
     internal static let shadow = ColorAsset(name: "shadow")
   }
   internal enum Images {
+    internal static let iconBack = ImageAsset(name: "icon_back")
     internal static let iconMoneyBox = ImageAsset(name: "icon_money_box")
     internal static let iconMoneyBoxFilled = ImageAsset(name: "icon_money_box_filled")
     internal static let orderPlaceholder = ImageAsset(name: "order_placeholder")

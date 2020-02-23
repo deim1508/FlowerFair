@@ -11,6 +11,9 @@ import UIKit
 import PINRemoteImage
 
 class OrderDetailViewController: UIViewController {
+    //MARK: - Public properties
+     var viewModel: OrderDetailViewModel!
+     
     //MARK: - Private properties    
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var pageControl: ISPageControl!
@@ -19,9 +22,6 @@ class OrderDetailViewController: UIViewController {
     @IBOutlet private weak var deliverToLabel: UILabel!
     @IBOutlet private weak var descriptionTextView: UITextView!
     private var frame = CGRect.zero
-    
-    //MARK: - Public properties
-    var viewModel: OrderDetailViewModel!
     
     //MARK: - Lifecycle methods
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +58,7 @@ class OrderDetailViewController: UIViewController {
         descriptionTextView.showsVerticalScrollIndicator = false
     }
     
+    //add images to the right position in scrollView in order to create a pageable collection
     private func setupScrollView() {
         guard !viewModel.outputs.orderImageUrls.isEmpty else {
             setupScrollViewWithPlaceholder()
@@ -77,6 +78,7 @@ class OrderDetailViewController: UIViewController {
         scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * CGFloat(viewModel.outputs.orderImageUrls.count)), height: 0)
     }
     
+    //add placeholderImage to scrollView when there is no orderImageUrl
     private func setupScrollViewWithPlaceholder() {
         let placeholderImageView = UIImageView.autoLayout()
         placeholderImageView.image = Asset.Images.orderPlaceholder.image

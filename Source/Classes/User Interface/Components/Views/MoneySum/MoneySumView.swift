@@ -10,23 +10,20 @@ import UIKit
 
 struct MoneySumViewModel {
     let priceSum: String
-    
-    init(priceSum: Int) {
-        self.priceSum = L10n.orderPriceWithCurrency("\(priceSum)")
-    }
 }
 
 class MoneySumView: UIView {
+    //MARK: - Public properties
+    var viewModel: MoneySumViewModel? {
+        didSet { bindViewModel() }
+    }
+    
     //MARK: - Private properties
     private let moneyBoxImageView = UIImageView.autoLayout()
     private let moneySumLabel = UILabel.autoLayout()
     private let stackView = UIStackView.autoLayout()
     
-    var viewModel: MoneySumViewModel? {
-        didSet { bindViewModel() }
-    }
-    
-    //MARK: - UI
+    //MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -37,6 +34,7 @@ class MoneySumView: UIView {
         setupUI()
     }
     
+    //MARK: - Private methods, UI setup
     private func setupUI() {
         stackView.alignment = .fill
         stackView.distribution = .fillProportionally

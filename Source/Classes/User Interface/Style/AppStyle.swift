@@ -20,5 +20,7 @@ struct AppStyle {
         UINavigationBar.appearance().prefersLargeTitles = true
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.font: Font.regular(size: .superLarge)]
         UINavigationBar.appearance().tintColor = .black
+        UINavigationBar.appearance().backIndicatorImage = Asset.Images.iconBack.image
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = Asset.Images.iconBack.image
     }
 }

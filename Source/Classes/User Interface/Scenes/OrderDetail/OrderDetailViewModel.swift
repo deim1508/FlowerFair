@@ -39,12 +39,12 @@ final class OrderDetailViewModelImpl: OrderDetailViewModel {
     //MARK: - init
     init(order: Order) {
         self.order = order
-        footerViewModel = OrderDetailFooterViewModel(deliverTo: order.deliverTo, price: order.price)
+        footerViewModel = OrderDetailFooterViewModel(orderDate: Date.formatDateFromInt(dateInt: order.date), price: order.price)
         orderTitle = order.title
         orderDescription = order.description
         deliverTo = L10n.deliveredTo(order.deliverTo)
         
-        guard let imageUrls = order.imageUrl else { return }
+        guard let imageUrls = order.imageUrls else { return }
         orderImageUrls = imageUrls.map({ imageUrl -> URL? in
             URL(string: imageUrl)
         })

@@ -13,8 +13,6 @@ enum FontType {
 }
 
 enum FontSize: CGFloat {
-    /// 10
-    case extraSmall     = 10
     /// 12
     case small          = 12
     /// 14
@@ -52,7 +50,6 @@ protocol FontConvertible {
 }
 
 extension FontConvertible where Self: RawRepresentable, Self.RawValue == String {
-    
     func font(size: FontSize) -> UIFont! {
         return UIFont(name: self.rawValue, size: size.rawValue)
     }

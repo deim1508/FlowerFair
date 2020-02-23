@@ -11,6 +11,7 @@ import RxSwift
 
 protocol OrdersViewModelFlowDelegate: class {
     func didTapOrder(on order: Order)
+    func showLoadOrdersFailedAlert()
 }
 
 protocol OrdersViewModelInputs {
@@ -52,34 +53,39 @@ final class OrdersViewModelImpl: OrdersViewModel {
     private let orderService: OrderService
     private var orders: [Order] = []
     
+    //MARK: - init
     init(orderService: OrderService) {
         self.orderService = orderService
     }
     
+    /*  loading orders from the specific API
+        sorting data in descending order by orderDate
+        create OrderCollectionViewModels    */
     func ordersVCViewDidLoad() {
         var prices = 0
         orders = []
         orderService.loadOrders(succes: { [weak self] result in
             guard let self = self else { return }
-            let orderCellViewModels = result.map { (order: Order) -> OrderCollectionCellViewModel in
-                prices += order.price
-                self.orders.append(order)
-                let orderCellViewModel = OrderCollectionCellViewModelImpl(id: order.orderId, title: order.title, price: order.price, imageURL: order.imageUrl?.first)
-                return orderCellViewModel
-            }
+            let orderCellViewModels = result.sorted { $0.date > $1.date }
+                .map { (order: Order) -> OrderCollectionCellViewModel in
+                    prices += order.price
+                    self.orders.append(order)
+                    let orderCellViewModel = OrderCollectionCellViewModelImpl(id: order.orderId, title: order.title, price: order.price, imageURL: order.imageUrls?.first)
+                    return orderCellViewModel
+                }
             self.items = orderCellViewModels
-            self.moneySumViewModel = MoneySumViewModel(priceSum: prices)
+            self.moneySumViewModel = MoneySumViewModel(priceSum: L10n.orderPriceWithCurrency("\(prices)"))
             self._shouldReloadData.onNext(())
             self._shouldShowMoneyBox.onNext(true)
-        }) { error in
-            print(error)
+        }) { [weak self] _ in
+            guard let self = self else { return }
+            self.flowDelegate?.showLoadOrdersFailedAlert()
         }
     }
     
+    
     func didSelectItem(at index: Int) {
-        let selectedOrder = orders.first { order -> Bool in
-            order.orderId == self.items[index].orderId
-            }
+        let selectedOrder = orders.first { $0.orderId == self.items[index].orderId }
         
         guard let order = selectedOrder else { return }
         flowDelegate?.didTapOrder(on: order)

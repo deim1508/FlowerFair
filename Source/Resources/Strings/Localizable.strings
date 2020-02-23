@@ -10,3 +10,8 @@
 
 //MARK: - OrderDetail
 "delivered_to" = "Delivered to: %@";
+
+//MARK: - Alert
+"ok" = "OK";
+"load_orders_error_message" = "Maybe the server is not available. Please try again later!";
+"alert_title_sorry" = "Sorry";
