@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,19 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yoP-LN-gTH">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="42x-VV-AMi">
-                                    <size key="itemSize" width="0.0" height="0.0"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="mkj-Y3-Hmz">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="403"/>
+                            </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z1F-sP-MV8" customClass="ISPageControl" customModule="ISPageControl">
-                                <rect key="frame" x="0.0" y="409" width="414" height="20"/>
+                                <rect key="frame" x="0.0" y="407" width="414" height="20"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="xSS-gn-eYE"/>
@@ -50,6 +43,43 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7TH-3b-enX" userLabel="Detail Container">
+                                <rect key="frame" x="24" y="435" width="366" height="403"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWE-zG-V7y">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1Q-7V-m6n">
+                                        <rect key="frame" x="0.0" y="12" width="366" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ozu-w4-ifD">
+                                        <rect key="frame" x="0.0" y="20" width="366" height="383"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" name="background"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ozu-w4-ifD" secondAttribute="trailing" id="1Ki-fL-EBf"/>
+                                    <constraint firstAttribute="trailing" secondItem="g1Q-7V-m6n" secondAttribute="trailing" id="4qi-P2-twx"/>
+                                    <constraint firstAttribute="trailing" secondItem="hWE-zG-V7y" secondAttribute="trailing" id="9V9-xB-iR6"/>
+                                    <constraint firstItem="ozu-w4-ifD" firstAttribute="leading" secondItem="7TH-3b-enX" secondAttribute="leading" id="F7L-Ag-J5g"/>
+                                    <constraint firstItem="hWE-zG-V7y" firstAttribute="leading" secondItem="7TH-3b-enX" secondAttribute="leading" id="KcW-U2-WB1"/>
+                                    <constraint firstItem="hWE-zG-V7y" firstAttribute="top" secondItem="7TH-3b-enX" secondAttribute="top" id="M63-6o-O70"/>
+                                    <constraint firstItem="ozu-w4-ifD" firstAttribute="top" secondItem="g1Q-7V-m6n" secondAttribute="bottom" constant="8" id="XIT-mL-vs1"/>
+                                    <constraint firstItem="g1Q-7V-m6n" firstAttribute="top" secondItem="hWE-zG-V7y" secondAttribute="bottom" constant="12" id="XtW-V6-dKW"/>
+                                    <constraint firstAttribute="bottom" secondItem="ozu-w4-ifD" secondAttribute="bottom" id="ZRv-ZI-lnI"/>
+                                    <constraint firstItem="g1Q-7V-m6n" firstAttribute="leading" secondItem="7TH-3b-enX" secondAttribute="leading" id="xjn-FT-ezo"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5z-Eg-z29" customClass="OrderDetailFooterView" customModule="FlowerFair" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="846" width="414" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -62,21 +92,29 @@
                         <constraints>
                             <constraint firstItem="VBo-IT-G6n" firstAttribute="trailing" secondItem="M5z-Eg-z29" secondAttribute="trailing" id="0IF-tV-mly"/>
                             <constraint firstItem="Z1F-sP-MV8" firstAttribute="leading" secondItem="VBo-IT-G6n" secondAttribute="leading" id="15v-i1-pJs"/>
-                            <constraint firstItem="Z1F-sP-MV8" firstAttribute="top" secondItem="yoP-LN-gTH" secondAttribute="bottom" id="87I-NL-vDJ"/>
+                            <constraint firstItem="VBo-IT-G6n" firstAttribute="trailing" secondItem="7TH-3b-enX" secondAttribute="trailing" constant="24" id="5Gt-xP-Iuo"/>
                             <constraint firstItem="M5z-Eg-z29" firstAttribute="leading" secondItem="VBo-IT-G6n" secondAttribute="leading" id="9iK-Nl-OsA"/>
-                            <constraint firstItem="yoP-LN-gTH" firstAttribute="top" secondItem="Ils-RZ-aEP" secondAttribute="top" id="MsX-1i-OHR"/>
+                            <constraint firstItem="mkj-Y3-Hmz" firstAttribute="width" secondItem="Ils-RZ-aEP" secondAttribute="width" id="Dn1-VP-pJv"/>
+                            <constraint firstItem="mkj-Y3-Hmz" firstAttribute="height" secondItem="Ils-RZ-aEP" secondAttribute="height" multiplier="0.45" id="IcJ-QP-15r"/>
+                            <constraint firstItem="mkj-Y3-Hmz" firstAttribute="leading" secondItem="Ils-RZ-aEP" secondAttribute="leading" id="NxC-g1-YF6"/>
+                            <constraint firstItem="mkj-Y3-Hmz" firstAttribute="top" secondItem="Ils-RZ-aEP" secondAttribute="top" id="Oay-bV-qwe"/>
+                            <constraint firstItem="7TH-3b-enX" firstAttribute="leading" secondItem="VBo-IT-G6n" secondAttribute="leading" constant="24" id="Q5c-jS-aSC"/>
+                            <constraint firstItem="7TH-3b-enX" firstAttribute="top" secondItem="Z1F-sP-MV8" secondAttribute="bottom" constant="8" id="Qgr-h5-KxS"/>
+                            <constraint firstItem="M5z-Eg-z29" firstAttribute="top" secondItem="7TH-3b-enX" secondAttribute="bottom" constant="8" id="bSv-CI-U1V"/>
                             <constraint firstItem="M5z-Eg-z29" firstAttribute="bottom" secondItem="Ils-RZ-aEP" secondAttribute="bottom" id="d0d-dw-s1l"/>
                             <constraint firstItem="VBo-IT-G6n" firstAttribute="trailing" secondItem="Z1F-sP-MV8" secondAttribute="trailing" id="eYD-9m-BYJ"/>
-                            <constraint firstItem="yoP-LN-gTH" firstAttribute="height" secondItem="VBo-IT-G6n" secondAttribute="height" multiplier="0.5" id="hS8-C0-u3V"/>
-                            <constraint firstItem="VBo-IT-G6n" firstAttribute="trailing" secondItem="yoP-LN-gTH" secondAttribute="trailing" id="no8-XN-0KS"/>
-                            <constraint firstItem="yoP-LN-gTH" firstAttribute="leading" secondItem="VBo-IT-G6n" secondAttribute="leading" id="sSI-nc-eVE"/>
+                            <constraint firstItem="Z1F-sP-MV8" firstAttribute="top" secondItem="mkj-Y3-Hmz" secondAttribute="bottom" constant="4" id="rZt-sU-cqJ"/>
+                            <constraint firstAttribute="trailing" secondItem="mkj-Y3-Hmz" secondAttribute="trailing" priority="250" id="so9-RS-Jlu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VBo-IT-G6n"/>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="yoP-LN-gTH" id="8mB-r8-3i6"/>
+                        <outlet property="deliverToLabel" destination="g1Q-7V-m6n" id="sg6-jj-Vbl"/>
+                        <outlet property="descriptionTextView" destination="ozu-w4-ifD" id="djV-dQ-67a"/>
                         <outlet property="footerView" destination="M5z-Eg-z29" id="59F-JJ-6XS"/>
+                        <outlet property="orderTitleLabel" destination="hWE-zG-V7y" id="Edp-KG-wZA"/>
                         <outlet property="pageControl" destination="Z1F-sP-MV8" id="B0d-oT-3bo"/>
+                        <outlet property="scrollView" destination="mkj-Y3-Hmz" id="d0g-HX-NQa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vew-xe-NRB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -84,4 +122,9 @@
             <point key="canvasLocation" x="-88.405797101449281" y="164.73214285714286"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="background">
+            <color red="0.1803921568627451" green="0.17647058823529413" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

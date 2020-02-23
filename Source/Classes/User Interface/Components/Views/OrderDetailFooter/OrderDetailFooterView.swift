@@ -25,8 +25,7 @@ class OrderDetailFooterView: UIView {
     }
     
     //MARK: - Private properties
-    @IBOutlet private weak var deliverToNameLabel: UILabel!
-    @IBOutlet private weak var deliverToLabel: UILabel!
+    @IBOutlet private weak var orderDataLabel: UILabel!
     @IBOutlet private weak var priceContainerView: UIView!
     @IBOutlet private weak var priceLabel: UILabel!
     
@@ -46,13 +45,9 @@ class OrderDetailFooterView: UIView {
         loadXib()
         backgroundColor = Asset.Colors.background.color
         
-        deliverToLabel.text = L10n.deliverTo
-        deliverToLabel.font = Font.regular(size: .large)
-        
-        deliverToNameLabel.font = Font.regular(size: .extraLarge)
+        orderDataLabel.font = Font.italic(size: .large)
         
         priceLabel.font = Font.bold(size: .extraLarge)
-        
         priceContainerView.decorator(with: [AppStyle.cornerRadius16Decorator, AppStyle.shadowDecorator])
     }
     
@@ -60,7 +55,7 @@ class OrderDetailFooterView: UIView {
         guard let viewModel = viewModel else {
             fatalError("ViewModel is not set! - OrderDetailFooterView")
         }
-        deliverToNameLabel.text = viewModel.deliverToName
+        orderDataLabel.text = "22.02.2020"
         priceLabel.text = viewModel.price
     }
 }

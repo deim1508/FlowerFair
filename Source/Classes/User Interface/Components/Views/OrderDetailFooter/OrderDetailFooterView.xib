@@ -9,8 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderDetailFooterView" customModule="FlowerFair" customModuleProvider="target">
             <connections>
-                <outlet property="deliverToLabel" destination="7Ro-Kw-Iom" id="h9k-LC-EqX"/>
-                <outlet property="deliverToNameLabel" destination="FcT-2S-zgU" id="LO9-kc-74D"/>
+                <outlet property="orderDataLabel" destination="FcT-2S-zgU" id="LO9-kc-74D"/>
                 <outlet property="priceContainerView" destination="4uV-be-Koo" id="LMD-64-kGe"/>
                 <outlet property="priceLabel" destination="ALM-lI-Dck" id="Oob-gt-vi0"/>
             </connections>
@@ -20,14 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="293" height="134"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ro-Kw-Iom">
-                    <rect key="frame" x="12" y="89" width="0.0" height="0.0"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcT-2S-zgU">
-                    <rect key="frame" x="20" y="89" width="0.0" height="0.0"/>
+                    <rect key="frame" x="24" y="89" width="0.0" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -54,14 +47,12 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4uV-be-Koo" secondAttribute="trailing" constant="12" id="9aN-tG-axp"/>
-                <constraint firstItem="7Ro-Kw-Iom" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="Bxj-Sl-Dha"/>
                 <constraint firstItem="4uV-be-Koo" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="EmZ-0A-lSs"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="4uV-be-Koo" secondAttribute="bottom" constant="12" id="JMK-OZ-yK3"/>
-                <constraint firstItem="FcT-2S-zgU" firstAttribute="leading" secondItem="7Ro-Kw-Iom" secondAttribute="trailing" constant="8" id="LSL-kc-O0K"/>
                 <constraint firstItem="4uV-be-Koo" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="dRT-4I-KqO"/>
                 <constraint firstItem="FcT-2S-zgU" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="4uV-be-Koo" secondAttribute="leading" constant="-24" id="pPM-Xr-9MU"/>
                 <constraint firstItem="FcT-2S-zgU" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="rOT-Pe-0bI"/>
-                <constraint firstItem="7Ro-Kw-Iom" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="vtH-8q-bQt"/>
+                <constraint firstItem="FcT-2S-zgU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="rPz-MN-ahF"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

@@ -12,9 +12,13 @@ import PINRemoteImage
 
 class OrderDetailViewController: UIViewController {
     //MARK: - Private properties    
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var pageControl: ISPageControl!
     @IBOutlet private weak var footerView: OrderDetailFooterView!
+    @IBOutlet private weak var orderTitleLabel: UILabel!
+    @IBOutlet private weak var deliverToLabel: UILabel!
+    @IBOutlet private weak var descriptionTextView: UITextView!
+    var frame = CGRect.zero
     
     //MARK: - Public properties
     var viewModel: OrderDetailViewModel!
@@ -34,14 +38,59 @@ class OrderDetailViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = Asset.Colors.background.color
         footerView.viewModel = viewModel.outputs.footerViewModel
+        scrollView.delegate = self
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.registerWithNib(cellType: ImageCollectionViewCell.self)
-        collectionView.backgroundColor = .red
-        
-        pageControl.numberOfPages = viewModel.outputs.imageCollectionCellViewModels.count
+        pageControl.numberOfPages = viewModel.outputs.orderImageUrls.count
         pageControl.backgroundColor = Asset.Colors.background.color
+        
+        setupScrollView()
+        
+        
+        orderTitleLabel.font = Font.regular(size: .large)
+        orderTitleLabel.text = viewModel.outputs.orderTitle
+        
+        deliverToLabel.font = Font.regular(size: .midLarge)
+        deliverToLabel.text = viewModel.outputs.deliverTo
+        
+        descriptionTextView.font = Font.regular(size: .mediumLarge)
+        descriptionTextView.text = viewModel.outputs.orderDescription
+        descriptionTextView.isEditable = false
+    }
+    
+    private func setupScrollView() {
+        guard !viewModel.outputs.orderImageUrls.isEmpty else {
+            setupScrollViewWithPlaceholder()
+            return
+        }
+        
+        for (index, imageUrl) in viewModel.outputs.orderImageUrls.enumerated() {
+            frame.origin.x = scrollView.frame.size.width * CGFloat(index)
+            frame.size = scrollView.frame.size
+            
+            let orderImageView = UIImageView(frame: frame)
+            orderImageView.contentMode = .scaleAspectFill
+            orderImageView.pin_setImage(from: imageUrl, placeholderImage: Asset.Images.orderPlaceholder.image)
+
+            self.scrollView.addSubview(orderImageView)
+        }
+        scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * CGFloat(viewModel.outputs.orderImageUrls.count)), height: 0)
+    }
+    
+    private func setupScrollViewWithPlaceholder() {
+        let placeholderImageView = UIImageView.autoLayout()
+        placeholderImageView.image = Asset.Images.orderPlaceholder.image
+        placeholderImageView.contentMode = .scaleAspectFill
+        
+        scrollView.addSubview(placeholderImageView)
+        
+        NSLayoutConstraint.activate([
+            placeholderImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            placeholderImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            placeholderImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            placeholderImageView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        ])
+        
+        scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: 0)
     }
 }
 
@@ -50,25 +99,6 @@ extension OrderDetailViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
         pageControl.currentPage = Int(pageNumber)
-    }
-}
-
-extension OrderDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.outputs.imageCollectionCellViewModels.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ImageCollectionViewCell.self)
-        cell.viewModel = viewModel.outputs.imageCollectionCellViewModels[indexPath.row]
-        return cell
-    }
-}
-
-extension OrderDetailViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.5)
     }
 }
 

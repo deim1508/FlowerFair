@@ -68,6 +68,6 @@ class OrderCollectionViewCell: UICollectionViewCell {
         }
         titleLabel.text = viewModel.title
         priceLabel.text = viewModel.price
-        imageView.pin_setImage(from: viewModel.imageURL, placeholderImage: Asset.Images._3.image)
+        imageView.pin_setImage(from: viewModel.imageURL, placeholderImage: Asset.Images.orderPlaceholder.image)
     }
 }

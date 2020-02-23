@@ -23,5 +23,6 @@ struct AppStyle {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: Font.regular(size: .mediumLarge)]
         UINavigationBar.appearance().prefersLargeTitles = true
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.font: Font.regular(size: .superLarge)]
+        UINavigationBar.appearance().tintColor = .black
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 
 struct MoneySumViewModel {
     let priceSum: String
+    
     init(priceSum: Int) {
         self.priceSum = "\(priceSum) RON"
     }
@@ -37,9 +38,7 @@ class MoneySumView: UIView {
     }
     
     private func setupUI() {
-        backgroundColor = .red
-        stackView.axis = .horizontal
-        stackView.alignment = .trailing
+        stackView.alignment = .fill
         stackView.distribution = .fillProportionally
         stackView.spacing = 6
         
@@ -58,9 +57,10 @@ class MoneySumView: UIView {
     
     private func setupConstraints() {
         let constraints: [NSLayoutConstraint] = [
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor)
         ]
         NSLayoutConstraint.activate(constraints)
     }

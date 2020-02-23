@@ -8,4 +8,4 @@
 "general_error" = "Sorry, something went wrong!";
 
 //MARK: - OrderDetail
-"deliver_to" = "Deliver to:";
+"delivered_to" = "Delivered to:";

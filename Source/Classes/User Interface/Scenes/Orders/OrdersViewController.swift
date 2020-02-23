@@ -64,7 +64,7 @@ class OrdersViewController: UIViewController {
         navBar.addSubview(moneyBoxView)
         
         NSLayoutConstraint.activate([
-            moneyBoxView.trailingAnchor.constraint(equalTo: navBar.trailingAnchor, constant: -16),
+            moneyBoxView.trailingAnchor.constraint(equalTo: navBar.trailingAnchor, constant: -20),
             moneyBoxView.bottomAnchor.constraint(equalTo: navBar.bottomAnchor, constant: -12)
         ])
     }
