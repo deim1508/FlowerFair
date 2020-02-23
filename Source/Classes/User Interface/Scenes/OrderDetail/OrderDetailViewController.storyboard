@@ -15,28 +15,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z1F-sP-MV8" customClass="ISPageControl" customModule="ISPageControl">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yoP-LN-gTH">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
-                                <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yoP-LN-gTH">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="42x-VV-AMi">
-                                            <size key="itemSize" width="0.0" height="0.0"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells/>
-                                    </collectionView>
-                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="42x-VV-AMi">
+                                    <size key="itemSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z1F-sP-MV8" customClass="ISPageControl" customModule="ISPageControl">
+                                <rect key="frame" x="0.0" y="409" width="414" height="20"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="yoP-LN-gTH" secondAttribute="trailing" id="14J-GQ-Pxq"/>
-                                    <constraint firstAttribute="bottom" secondItem="yoP-LN-gTH" secondAttribute="bottom" id="LdA-bK-3tM"/>
-                                    <constraint firstItem="yoP-LN-gTH" firstAttribute="leading" secondItem="Z1F-sP-MV8" secondAttribute="leading" id="N6B-Q1-GkK"/>
-                                    <constraint firstItem="yoP-LN-gTH" firstAttribute="top" secondItem="Z1F-sP-MV8" secondAttribute="top" id="yxG-Gq-9EJ"/>
+                                    <constraint firstAttribute="height" constant="20" id="xSS-gn-eYE"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="currentPageTintColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="inactiveTintColor">
+                                        <color key="value" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5z-Eg-z29" customClass="OrderDetailFooterView" customModule="FlowerFair" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="846" width="414" height="50"/>
@@ -50,11 +62,14 @@
                         <constraints>
                             <constraint firstItem="VBo-IT-G6n" firstAttribute="trailing" secondItem="M5z-Eg-z29" secondAttribute="trailing" id="0IF-tV-mly"/>
                             <constraint firstItem="Z1F-sP-MV8" firstAttribute="leading" secondItem="VBo-IT-G6n" secondAttribute="leading" id="15v-i1-pJs"/>
-                            <constraint firstItem="Z1F-sP-MV8" firstAttribute="top" secondItem="Ils-RZ-aEP" secondAttribute="top" id="87I-NL-vDJ"/>
+                            <constraint firstItem="Z1F-sP-MV8" firstAttribute="top" secondItem="yoP-LN-gTH" secondAttribute="bottom" id="87I-NL-vDJ"/>
                             <constraint firstItem="M5z-Eg-z29" firstAttribute="leading" secondItem="VBo-IT-G6n" secondAttribute="leading" id="9iK-Nl-OsA"/>
+                            <constraint firstItem="yoP-LN-gTH" firstAttribute="top" secondItem="Ils-RZ-aEP" secondAttribute="top" id="MsX-1i-OHR"/>
                             <constraint firstItem="M5z-Eg-z29" firstAttribute="bottom" secondItem="Ils-RZ-aEP" secondAttribute="bottom" id="d0d-dw-s1l"/>
                             <constraint firstItem="VBo-IT-G6n" firstAttribute="trailing" secondItem="Z1F-sP-MV8" secondAttribute="trailing" id="eYD-9m-BYJ"/>
-                            <constraint firstItem="Z1F-sP-MV8" firstAttribute="height" secondItem="VBo-IT-G6n" secondAttribute="height" multiplier="0.5" id="hS8-C0-u3V"/>
+                            <constraint firstItem="yoP-LN-gTH" firstAttribute="height" secondItem="VBo-IT-G6n" secondAttribute="height" multiplier="0.5" id="hS8-C0-u3V"/>
+                            <constraint firstItem="VBo-IT-G6n" firstAttribute="trailing" secondItem="yoP-LN-gTH" secondAttribute="trailing" id="no8-XN-0KS"/>
+                            <constraint firstItem="yoP-LN-gTH" firstAttribute="leading" secondItem="VBo-IT-G6n" secondAttribute="leading" id="sSI-nc-eVE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VBo-IT-G6n"/>
                     </view>

@@ -13,8 +13,7 @@ import PINRemoteImage
 class OrderDetailViewController: UIViewController {
     //MARK: - Private properties    
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var pageControl: ISPageControl!
-    
+    @IBOutlet private weak var pageControl: ISPageControl!
     @IBOutlet private weak var footerView: OrderDetailFooterView!
     
     //MARK: - Public properties
@@ -40,8 +39,9 @@ class OrderDetailViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.registerWithNib(cellType: ImageCollectionViewCell.self)
         collectionView.backgroundColor = .red
+        
         pageControl.numberOfPages = viewModel.outputs.imageCollectionCellViewModels.count
-        pageControl.backgroundColor = .brown
+        pageControl.backgroundColor = Asset.Colors.background.color
     }
 }
 
