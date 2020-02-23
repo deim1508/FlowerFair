@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ldO-wR-q3P">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="12" minimumInteritemSpacing="8" id="rk4-mH-ScJ">
                                     <size key="itemSize" width="0.0" height="0.0"/>
@@ -31,8 +31,8 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ldO-wR-q3P" secondAttribute="trailing" id="CXl-Wh-Bdp"/>
                             <constraint firstItem="ldO-wR-q3P" firstAttribute="leading" secondItem="T7J-Ic-q1Z" secondAttribute="leading" id="Fkz-Nq-zmH"/>
-                            <constraint firstAttribute="bottom" secondItem="ldO-wR-q3P" secondAttribute="bottom" id="ixX-rg-WQT"/>
-                            <constraint firstItem="ldO-wR-q3P" firstAttribute="top" secondItem="T7J-Ic-q1Z" secondAttribute="top" id="sPO-e2-pd1"/>
+                            <constraint firstItem="oj8-zw-njs" firstAttribute="bottom" secondItem="ldO-wR-q3P" secondAttribute="bottom" id="ixX-rg-WQT"/>
+                            <constraint firstItem="ldO-wR-q3P" firstAttribute="top" secondItem="oj8-zw-njs" secondAttribute="top" id="sPO-e2-pd1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oj8-zw-njs"/>
                     </view>

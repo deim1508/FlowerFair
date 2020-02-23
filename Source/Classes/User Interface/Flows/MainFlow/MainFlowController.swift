@@ -36,10 +36,10 @@ class MainFlowController: FlowController {
     
     private func initOrdersViewController() {
         let orderService = OrderServiceImpl()
-               ordersController = StoryboardScene.OrdersViewController.initialScene.instantiate()
-               let ordersViewModel = OrdersViewModelImpl(orderService: orderService)
-               ordersViewModel.flowDelegate = self
-               ordersController.bind(viewModel: ordersViewModel)
+        ordersController = StoryboardScene.OrdersViewController.initialScene.instantiate()
+        let ordersViewModel = OrdersViewModelImpl(orderService: orderService)
+        ordersViewModel.flowDelegate = self
+        ordersController.bind(viewModel: ordersViewModel)
     }
 }
 

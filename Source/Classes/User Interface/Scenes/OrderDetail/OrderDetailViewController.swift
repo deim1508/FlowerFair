@@ -18,7 +18,7 @@ class OrderDetailViewController: UIViewController {
     @IBOutlet private weak var orderTitleLabel: UILabel!
     @IBOutlet private weak var deliverToLabel: UILabel!
     @IBOutlet private weak var descriptionTextView: UITextView!
-    var frame = CGRect.zero
+    private var frame = CGRect.zero
     
     //MARK: - Public properties
     var viewModel: OrderDetailViewModel!
@@ -55,6 +55,7 @@ class OrderDetailViewController: UIViewController {
         descriptionTextView.font = Font.regular(size: .mediumLarge)
         descriptionTextView.text = viewModel.outputs.orderDescription
         descriptionTextView.isEditable = false
+        descriptionTextView.showsVerticalScrollIndicator = false
     }
     
     private func setupScrollView() {

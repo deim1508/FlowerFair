@@ -1,5 +1,6 @@
 //MARK: - Orders
 "order_list_title" = "Orders";
+"order_price_with_currency" = "%@ RON";
 
 //MARK: - BackendErrors
 "invalid_json" = "Invalid JSON!";
@@ -8,4 +9,4 @@
 "general_error" = "Sorry, something went wrong!";
 
 //MARK: - OrderDetail
-"delivered_to" = "Delivered to:";
+"delivered_to" = "Delivered to: %@";

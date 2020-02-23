@@ -9,23 +9,6 @@
 import UIKit
 import PINRemoteImage
 
-struct OrderCollectionViewCellViewModel {
-    let orderId: Int
-    let title: String
-    let price: String
-    var imageURL: URL?
-    
-    init(id: Int, title: String, price: Int, imageURL: String?) {
-        orderId = id
-        self.title = title
-        self.price = "\(price) RON"
-        self.imageURL = nil
-        if let imageURL = imageURL {
-            self.imageURL = URL(string: imageURL)
-        }
-    }
-}
-
 class OrderCollectionViewCell: UICollectionViewCell {
 
     //MARK: - Private properties
@@ -34,7 +17,7 @@ class OrderCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var priceLabel: UILabel!
     
     //MARK: - Public properties
-    var viewModel: OrderCollectionViewCellViewModel? {
+    var viewModel: OrderCollectionCellViewModel? {
         didSet {
             bindViewModel()
         }

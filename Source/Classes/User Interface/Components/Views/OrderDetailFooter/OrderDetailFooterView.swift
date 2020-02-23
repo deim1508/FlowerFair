@@ -14,7 +14,7 @@ struct OrderDetailFooterViewModel {
     
     init(deliverTo: String, price: Int) {
         deliverToName = deliverTo
-        self.price = "\(price) RON"
+        self.price = L10n.orderPriceWithCurrency("\(price)")
     }
 }
 
@@ -32,17 +32,18 @@ class OrderDetailFooterView: UIView {
     //MARK: - UI
     override init(frame: CGRect) {
         super.init(frame: frame)
+        loadXib()
         setupUI()
     }
    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        loadXib()
         setupUI()
     }
     
     //MARK: - Private methods
     private func setupUI() {
-        loadXib()
         backgroundColor = Asset.Colors.background.color
         
         orderDataLabel.font = Font.italic(size: .large)

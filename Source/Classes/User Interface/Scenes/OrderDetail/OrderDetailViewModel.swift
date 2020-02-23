@@ -42,7 +42,7 @@ final class OrderDetailViewModelImpl: OrderDetailViewModel {
         footerViewModel = OrderDetailFooterViewModel(deliverTo: order.deliverTo, price: order.price)
         orderTitle = order.title
         orderDescription = order.description
-        deliverTo = "\(L10n.deliveredTo)  \(order.deliverTo)"
+        deliverTo = L10n.deliveredTo(order.deliverTo)
         
         guard let imageUrls = order.imageUrl else { return }
         orderImageUrls = imageUrls.map({ imageUrl -> URL? in

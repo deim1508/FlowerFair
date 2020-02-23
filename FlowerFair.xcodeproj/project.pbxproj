@@ -48,6 +48,7 @@
 		37A30A102401BCCC00740B82 /* OrderDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A30A0F2401BCCC00740B82 /* OrderDetailFooterView.xib */; };
 		37A30A122401BCF100740B82 /* OrderDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A30A112401BCF100740B82 /* OrderDetailFooterView.swift */; };
 		37A30A142401BE5800740B82 /* UIView+loadXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A30A132401BE5800740B82 /* UIView+loadXib.swift */; };
+		37A30A1D2402DFBE00740B82 /* OrderCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A30A1C2402DFBE00740B82 /* OrderCollectionCellViewModel.swift */; };
 		3F0D12D8F19E30463BFB71F0 /* Pods_FlowerFair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F197A4850BF7D239CE36CB /* Pods_FlowerFair.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		37A30A0F2401BCCC00740B82 /* OrderDetailFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailFooterView.xib; sourceTree = "<group>"; };
 		37A30A112401BCF100740B82 /* OrderDetailFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailFooterView.swift; sourceTree = "<group>"; };
 		37A30A132401BE5800740B82 /* UIView+loadXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+loadXib.swift"; sourceTree = "<group>"; };
+		37A30A1C2402DFBE00740B82 /* OrderCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCollectionCellViewModel.swift; sourceTree = "<group>"; };
 		A4194FB8BD212DE97695A81C /* Pods-FlowerFair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowerFair.release.xcconfig"; path = "Target Support Files/Pods-FlowerFair/Pods-FlowerFair.release.xcconfig"; sourceTree = "<group>"; };
 		C5359F765F6941295E7BBFEF /* Pods-FlowerFair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowerFair.debug.xcconfig"; path = "Target Support Files/Pods-FlowerFair/Pods-FlowerFair.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -329,6 +331,7 @@
 			children = (
 				22DDA89023FBEDE2009B3D8C /* OrderCollectionViewCell.swift */,
 				22DDA89123FBEDE2009B3D8C /* OrderCollectionViewCell.xib */,
+				37A30A1C2402DFBE00740B82 /* OrderCollectionCellViewModel.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				37A309FD240111C700740B82 /* BackendManager.swift in Sources */,
 				22DDA8A423FC200A009B3D8C /* ShadowDecorator.swift in Sources */,
 				22DDA88723FAEF88009B3D8C /* Assets.swift in Sources */,
+				37A30A1D2402DFBE00740B82 /* OrderCollectionCellViewModel.swift in Sources */,
 				22DDA89A23FBF582009B3D8C /* AppStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

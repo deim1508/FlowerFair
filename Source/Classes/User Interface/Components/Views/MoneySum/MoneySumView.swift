@@ -12,7 +12,7 @@ struct MoneySumViewModel {
     let priceSum: String
     
     init(priceSum: Int) {
-        self.priceSum = "\(priceSum) RON"
+        self.priceSum = L10n.orderPriceWithCurrency("\(priceSum)")
     }
 }
 

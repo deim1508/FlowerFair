@@ -19,12 +19,13 @@ protocol OrdersViewModelInputs {
 }
 
 protocol OrdersViewModelOutputs {
-    var items: [OrderCollectionViewCellViewModel] { get }
+    var items: [OrderCollectionCellViewModel] { get }
     var shouldReloadData: Observable<Void> { get }
     var moneySumViewModel: MoneySumViewModel? { get }
+    var shouldShowMoneyBox: Observable<Bool> { get }
 }
 
-protocol OrdersViewModel {
+protocol OrdersViewModel: AnyObject {
     var inputs: OrdersViewModelInputs { get }
     var outputs: OrdersViewModelOutputs { get }
     var flowDelegate: OrdersViewModelFlowDelegate? { get set }
@@ -36,14 +37,18 @@ final class OrdersViewModelImpl: OrdersViewModel {
     var outputs: OrdersViewModelOutputs { return self }
     weak var flowDelegate: OrdersViewModelFlowDelegate?
     
-    var items: [OrderCollectionViewCellViewModel] = []
+    var items: [OrderCollectionCellViewModel] = []
     var shouldReloadData: Observable<Void> {
         return _shouldReloadData.asObservable().skip(1).observeOn(MainScheduler.instance)
+    }
+    var shouldShowMoneyBox: Observable<Bool> {
+        return _shouldShowMoneyBox.asObservable().observeOn(MainScheduler.instance)
     }
     var moneySumViewModel: MoneySumViewModel?
     
     //MARK: - Private properties
     private let _shouldReloadData: BehaviorSubject<Void> = BehaviorSubject<Void>(value: ())
+    private let _shouldShowMoneyBox: PublishSubject<Bool> = PublishSubject<Bool>()
     private let orderService: OrderService
     private var orders: [Order] = []
     
@@ -56,15 +61,16 @@ final class OrdersViewModelImpl: OrdersViewModel {
         orders = []
         orderService.loadOrders(succes: { [weak self] result in
             guard let self = self else { return }
-            let orders = result.map { (order: Order) -> OrderCollectionViewCellViewModel in
+            let orderCellViewModels = result.map { (order: Order) -> OrderCollectionCellViewModel in
                 prices += order.price
                 self.orders.append(order)
-                let orders = OrderCollectionViewCellViewModel(id: order.orderId, title: order.title, price: order.price, imageURL: order.imageUrl?.first)
-                return orders
+                let orderCellViewModel = OrderCollectionCellViewModelImpl(id: order.orderId, title: order.title, price: order.price, imageURL: order.imageUrl?.first)
+                return orderCellViewModel
             }
-            self.items = orders
+            self.items = orderCellViewModels
             self.moneySumViewModel = MoneySumViewModel(priceSum: prices)
             self._shouldReloadData.onNext(())
+            self._shouldShowMoneyBox.onNext(true)
         }) { error in
             print(error)
         }

@@ -10,8 +10,10 @@ import Foundation
 
 // swiftlint:disable function_parameter_count identifier_name line_length type_body_length
 internal enum L10n {
-  /// Delivered to:
-  internal static let deliveredTo = L10n.tr("Localizable", "delivered_to")
+  /// Delivered to: %@
+  internal static func deliveredTo(_ p1: String) -> String {
+    return L10n.tr("Localizable", "delivered_to", p1)
+  }
   /// Sorry, something went wrong!
   internal static let generalError = L10n.tr("Localizable", "general_error")
   /// There is some problem with the data!
@@ -22,6 +24,10 @@ internal enum L10n {
   internal static let invalidUrl = L10n.tr("Localizable", "invalid_url")
   /// Orders
   internal static let orderListTitle = L10n.tr("Localizable", "order_list_title")
+  /// %@ RON
+  internal static func orderPriceWithCurrency(_ p1: String) -> String {
+    return L10n.tr("Localizable", "order_price_with_currency", p1)
+  }
 }
 // swiftlint:enable function_parameter_count identifier_name line_length type_body_length
 

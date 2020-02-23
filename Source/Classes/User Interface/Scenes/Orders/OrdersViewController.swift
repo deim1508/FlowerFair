@@ -18,7 +18,7 @@ class OrdersViewController: UIViewController {
     //MARK: - Private properties
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var collectionViewLayout: UICollectionViewFlowLayout!
-    private let moneyBoxView: MoneySumView = {
+    private lazy var moneyBoxView: MoneySumView = {
         let moneyBoxView = MoneySumView.autoLayout()
         moneyBoxView.isHidden = true
         return moneyBoxView
@@ -31,7 +31,7 @@ class OrdersViewController: UIViewController {
     //MARK: - Lifecycle methods
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
-        guard (viewModel.outputs.moneySumViewModel != nil) else { return }
+        guard viewModel.outputs.moneySumViewModel != nil else { return }
         showMoneyBox(true)
     }
     
@@ -115,9 +115,13 @@ extension OrdersViewController: BindableType {
     func bindViewModel() {
         viewModel.outputs.shouldReloadData.bind { [unowned self] _ in
             self.collectionView.reloadData()
-            self.moneyBoxView.viewModel = self.viewModel.outputs.moneySumViewModel
-            self.showMoneyBox(true)
-            self.moneyBoxView.isHidden = false
+        }.disposed(by: disposeBag)
+        
+        viewModel.outputs.shouldShowMoneyBox.bind { [unowned self, weak viewModel] isVisibleMoneyBox in
+            guard let viewModel = viewModel else { return }
+            self.moneyBoxView.viewModel = viewModel.outputs.moneySumViewModel
+            self.moneyBoxView.isHidden = !isVisibleMoneyBox
+            self.showMoneyBox(isVisibleMoneyBox)
         }.disposed(by: disposeBag)
     }
 }
