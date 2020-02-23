@@ -20,6 +20,7 @@ class OrdersViewController: UIViewController {
     //MARK: - Private properties
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var collectionViewLayout: UICollectionViewFlowLayout!
+    private let refreshControl = UIRefreshControl()
     private lazy var moneyBoxView: MoneySumView = {
         let moneyBoxView = MoneySumView.autoLayout()
         moneyBoxView.isHidden = true
@@ -56,6 +57,9 @@ class OrdersViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerWithNib(cellType: OrderCollectionViewCell.self)
+        collectionView.refreshControl = refreshControl
+        
+        refreshControl.addTarget(self, action: #selector(refreshOrderData), for: .valueChanged)
     }
     
     private func setupNavBar() {
@@ -71,6 +75,12 @@ class OrdersViewController: UIViewController {
     private func showMoneyBox(_ show: Bool) {
         UIView.animate(withDuration: 0.2) {
             self.moneyBoxView.alpha = show ? 1.0 : 0.0
+        }
+    }
+    
+    @objc private func refreshOrderData() {
+        viewModel.inputs.didPullToRefresh {
+            self.refreshControl.endRefreshing()
         }
     }
 }

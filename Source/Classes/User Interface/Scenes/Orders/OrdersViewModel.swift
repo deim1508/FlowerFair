@@ -17,6 +17,7 @@ protocol OrdersViewModelFlowDelegate: class {
 protocol OrdersViewModelInputs {
     func ordersVCViewDidLoad()
     func didSelectItem(at index: Int)
+    func didPullToRefresh(completion: @escaping () -> Void)
 }
 
 protocol OrdersViewModelOutputs {
@@ -58,10 +59,26 @@ final class OrdersViewModelImpl: OrdersViewModel {
         self.orderService = orderService
     }
     
-    /*  loading orders from the specific API
-        sorting data in descending order by orderDate
-        create OrderCollectionViewModels    */
     func ordersVCViewDidLoad() {
+       loadOrders()
+    }
+    
+    
+    func didSelectItem(at index: Int) {
+        let selectedOrder = orders.first { $0.orderId == self.items[index].orderId }
+        
+        guard let order = selectedOrder else { return }
+        flowDelegate?.didTapOrder(on: order)
+    }
+    
+    func didPullToRefresh(completion: @escaping () -> Void) {
+        loadOrders { completion() }
+    }
+    
+    /*  loading orders from the specific API
+    sorting data in descending order by orderDate
+    create OrderCollectionViewModels    */
+    private func loadOrders(completion: @escaping () -> Void = {}) {
         var prices = 0
         orders = []
         orderService.loadOrders(succes: { [weak self] result in
@@ -77,18 +94,11 @@ final class OrdersViewModelImpl: OrdersViewModel {
             self.moneySumViewModel = MoneySumViewModel(priceSum: L10n.orderPriceWithCurrency("\(prices)"))
             self._shouldReloadData.onNext(())
             self._shouldShowMoneyBox.onNext(true)
-        }) { [weak self] _ in
-            guard let self = self else { return }
-            self.flowDelegate?.showLoadOrdersFailedAlert()
-        }
-    }
-    
-    
-    func didSelectItem(at index: Int) {
-        let selectedOrder = orders.first { $0.orderId == self.items[index].orderId }
-        
-        guard let order = selectedOrder else { return }
-        flowDelegate?.didTapOrder(on: order)
+            completion()
+       }) { [weak self] _ in
+           guard let self = self else { return }
+           self.flowDelegate?.showLoadOrdersFailedAlert()
+       }
     }
 }
 
