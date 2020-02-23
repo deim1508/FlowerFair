@@ -21,6 +21,7 @@ class OrdersViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var collectionViewLayout: UICollectionViewFlowLayout!
     private let refreshControl = UIRefreshControl()
+    private let searchController = UISearchController(searchResultsController: nil)
     private lazy var moneyBoxView: MoneySumView = {
         let moneyBoxView = MoneySumView.autoLayout()
         moneyBoxView.isHidden = true
@@ -31,7 +32,7 @@ class OrdersViewController: UIViewController {
     //MARK: - Lifecycle methods
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
-        guard viewModel.outputs.moneySumViewModel != nil else { return }
+        guard viewModel.outputs.moneySumViewModel != nil, !isFiltering() else { return }
         showMoneyBox(true)
     }
     
@@ -60,6 +61,10 @@ class OrdersViewController: UIViewController {
         collectionView.refreshControl = refreshControl
         
         refreshControl.addTarget(self, action: #selector(refreshOrderData), for: .valueChanged)
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        definesPresentationContext = true
     }
     
     private func setupNavBar() {
@@ -67,15 +72,26 @@ class OrdersViewController: UIViewController {
         navBar.addSubview(moneyBoxView)
         
         NSLayoutConstraint.activate([
-            moneyBoxView.trailingAnchor.constraint(equalTo: navBar.trailingAnchor, constant: -20),
-            moneyBoxView.bottomAnchor.constraint(equalTo: navBar.bottomAnchor, constant: -12)
+             moneyBoxView.trailingAnchor.constraint(equalTo: navBar.trailingAnchor, constant: -20),
+             moneyBoxView.bottomAnchor.constraint(equalTo: navBar.bottomAnchor, constant: -60)
         ])
+        
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     private func showMoneyBox(_ show: Bool) {
         UIView.animate(withDuration: 0.2) {
             self.moneyBoxView.alpha = show ? 1.0 : 0.0
         }
+    }
+    
+    private func searchBarIsEmpty() -> Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    private func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
     }
     
     @objc private func refreshOrderData() {
@@ -88,19 +104,26 @@ class OrdersViewController: UIViewController {
 //MARK: - UICollectionViewDelegate
 extension OrdersViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.inputs.didSelectItem(at: indexPath.row)
+        viewModel.inputs.didSelectItem(at: indexPath.row, isFiltered: isFiltering())
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        cell.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        UIView.animate(withDuration: 0.4) {
+            cell.transform = CGAffineTransform.identity
+        }
     }
 }
 
 //MARK: - UICollectionViewDatasource
 extension OrdersViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.outputs.items.count
+        return isFiltering() ? viewModel.outputs.filteredItems.count : viewModel.outputs.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: OrderCollectionViewCell.self)
-        cell.viewModel = viewModel.outputs.items[indexPath.row]
+        cell.viewModel = isFiltering() ? viewModel.outputs.filteredItems[indexPath.row] : viewModel.outputs.items[indexPath.row]
         return cell
     }
 }
@@ -116,6 +139,15 @@ extension OrdersViewController: UICollectionViewDelegateFlowLayout {
          let size: CGFloat = (collectionView.frame.size.width / 2.0 ) - space
          return CGSize(width: size, height: size + 50)
      }
+}
+
+//MARK: - UISearchResultsUpdating
+extension OrdersViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchBarText = searchController.searchBar.text else { return }
+        showMoneyBox(!searchController.isActive)
+        viewModel.inputs.filterContentForSearchText(searchBarText)
+    }
 }
 
 //MARK: - Bind viewModel

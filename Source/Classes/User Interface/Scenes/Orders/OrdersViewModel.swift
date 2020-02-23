@@ -16,12 +16,14 @@ protocol OrdersViewModelFlowDelegate: class {
 
 protocol OrdersViewModelInputs {
     func ordersVCViewDidLoad()
-    func didSelectItem(at index: Int)
+    func didSelectItem(at index: Int, isFiltered: Bool)
     func didPullToRefresh(completion: @escaping () -> Void)
+    func filterContentForSearchText(_ searchText: String)
 }
 
 protocol OrdersViewModelOutputs {
     var items: [OrderCollectionCellViewModel] { get }
+    var filteredItems: [OrderCollectionCellViewModel] { get }
     var shouldReloadData: Observable<Void> { get }
     var moneySumViewModel: MoneySumViewModel? { get }
     var shouldShowMoneyBox: Observable<Bool> { get }
@@ -40,6 +42,7 @@ final class OrdersViewModelImpl: OrdersViewModel {
     weak var flowDelegate: OrdersViewModelFlowDelegate?
     
     var items: [OrderCollectionCellViewModel] = []
+    var filteredItems: [OrderCollectionCellViewModel] = []
     var shouldReloadData: Observable<Void> {
         return _shouldReloadData.asObservable().skip(1).observeOn(MainScheduler.instance)
     }
@@ -63,9 +66,9 @@ final class OrdersViewModelImpl: OrdersViewModel {
        loadOrders()
     }
     
-    
-    func didSelectItem(at index: Int) {
-        let selectedOrder = orders.first { $0.orderId == self.items[index].orderId }
+    func didSelectItem(at index: Int, isFiltered: Bool) {
+        let selectedOrderItem = isFiltered ? filteredItems[index] : items[index]
+        let selectedOrder = orders.first { $0.orderId == selectedOrderItem.orderId }
         
         guard let order = selectedOrder else { return }
         flowDelegate?.didTapOrder(on: order)
@@ -73,6 +76,17 @@ final class OrdersViewModelImpl: OrdersViewModel {
     
     func didPullToRefresh(completion: @escaping () -> Void) {
         loadOrders { completion() }
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        //get orders which contains the searched Text in Title, Price, DeliverTo or in Description
+        let filteredOrders = orders.filter { "\($0.title.lowercased())\($0.price)\($0.deliverTo.lowercased())\(String(describing: $0.description).lowercased())".contains(searchText.lowercased()) }
+        
+        //get the filtered orderCellViewModels
+        filteredItems = items.filter { item in filteredOrders.contains { order -> Bool in
+            order.orderId == item.orderId
+        }}
+        _shouldReloadData.onNext(())
     }
     
     /*  loading orders from the specific API

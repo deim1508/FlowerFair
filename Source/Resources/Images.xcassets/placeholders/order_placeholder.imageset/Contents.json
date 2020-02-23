@@ -3,6 +3,16 @@
     {
       "idiom" : "universal",
       "filename" : "Screenshot 2020-02-23 at 14.47.17.png"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "image (1).png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ]
     }
   ],
   "info" : {
