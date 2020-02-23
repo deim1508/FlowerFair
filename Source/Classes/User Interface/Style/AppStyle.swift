@@ -8,10 +8,6 @@
 
 import UIKit
 
-enum FontType {
-    case regular, italic, bold
-}
-
 struct AppStyle {
     static let shadowDecorator = ShadowDecorator(radius: 12)
     static let cornerRadiusDecorator = CornerRadiusDecorator(radius: 12)

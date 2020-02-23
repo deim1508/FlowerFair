@@ -13,7 +13,6 @@ class MainFlowController: FlowController {
     private var navigationController: UINavigationController!
     
     var mainViewController: UIViewController? {
-        navigationController = UINavigationController(rootViewController: ordersController)
         return navigationController
     }
     
@@ -23,18 +22,24 @@ class MainFlowController: FlowController {
     required init(from parent: FlowController? = nil, for presentation: FlowControllerPresentation = .custom) {
         parentFlow = parent
         flowPresentation = presentation
+        
+        initOrdersViewController()
     }
     
     func initMainViewController() {
-        let orderService = OrderServiceImpl()
-        ordersController = StoryboardScene.OrdersViewController.initialScene.instantiate()
-        let ordersViewModel = OrdersViewModelImpl(orderService: orderService)
-        ordersViewModel.flowDelegate = self
-        ordersController.bind(viewModel: ordersViewModel)
+        navigationController = UINavigationController(rootViewController: ordersController)
     }
     
     func firstScreen() -> UIViewController {
         return ordersController
+    }
+    
+    private func initOrdersViewController() {
+        let orderService = OrderServiceImpl()
+               ordersController = StoryboardScene.OrdersViewController.initialScene.instantiate()
+               let ordersViewModel = OrdersViewModelImpl(orderService: orderService)
+               ordersViewModel.flowDelegate = self
+               ordersController.bind(viewModel: ordersViewModel)
     }
 }
 

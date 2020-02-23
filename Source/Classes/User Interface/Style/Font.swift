@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum FontType {
+    case regular, italic, bold
+}
+
 enum FontSize: CGFloat {
     /// 10
     case extraSmall     = 10
