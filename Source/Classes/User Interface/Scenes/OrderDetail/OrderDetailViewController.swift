@@ -6,17 +6,16 @@
 //  Copyright © 2020 babycougar. All rights reserved.
 //
 
+import ISPageControl
 import UIKit
 import PINRemoteImage
 
 class OrderDetailViewController: UIViewController {
-    //MARK: - Private properties
-    @IBOutlet private weak var scrollView: UIScrollView!
-    @IBOutlet private weak var pageControl: UIPageControl!
-    @IBOutlet private weak var containerView: UIView!
+    //MARK: - Private properties    
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var pageControl: ISPageControl!
+    
     @IBOutlet private weak var footerView: OrderDetailFooterView!
-    private var frame = CGRect.zero
-
     
     //MARK: - Public properties
     var viewModel: OrderDetailViewModel!
@@ -35,28 +34,14 @@ class OrderDetailViewController: UIViewController {
     //MARK: - Private methods
     private func setupUI() {
         view.backgroundColor = Asset.Colors.background.color
-        
-        containerView.backgroundColor = .blue
-        pageControl.numberOfPages = viewModel.outputs.flowerImageUrls.count
-        pageControl.backgroundColor = .red
-        setupPageControl()
-        scrollView.delegate = self
-        containerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
-        
         footerView.viewModel = viewModel.outputs.footerViewModel
-    }
-    
-    private func setupPageControl() {
-        for (index, imageUrl) in viewModel.outputs.flowerImageUrls.enumerated() {
-            frame.origin.x = scrollView.frame.size.width * CGFloat(index)
-            frame.size = scrollView.frame.size
-            
-            let imageView = UIImageView(frame: frame)
-            imageView.pin_setImage(from: imageUrl, placeholderImage: Asset.Images.orderPlaceholder1.image)
-            
-            self.scrollView.addSubview(imageView)
-        }
-        scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * CGFloat(viewModel.outputs.flowerImageUrls.count)), height: scrollView.frame.size.height)
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerWithNib(cellType: ImageCollectionViewCell.self)
+        collectionView.backgroundColor = .red
+        pageControl.numberOfPages = viewModel.outputs.imageCollectionCellViewModels.count
+        pageControl.backgroundColor = .brown
     }
 }
 
@@ -65,6 +50,25 @@ extension OrderDetailViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
         pageControl.currentPage = Int(pageNumber)
+    }
+}
+
+extension OrderDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.outputs.imageCollectionCellViewModels.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ImageCollectionViewCell.self)
+        cell.viewModel = viewModel.outputs.imageCollectionCellViewModels[indexPath.row]
+        return cell
+    }
+}
+
+extension OrderDetailViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.5)
     }
 }
 

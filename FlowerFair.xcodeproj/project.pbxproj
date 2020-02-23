@@ -48,6 +48,8 @@
 		37A30A102401BCCC00740B82 /* OrderDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A30A0F2401BCCC00740B82 /* OrderDetailFooterView.xib */; };
 		37A30A122401BCF100740B82 /* OrderDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A30A112401BCF100740B82 /* OrderDetailFooterView.swift */; };
 		37A30A142401BE5800740B82 /* UIView+loadXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A30A132401BE5800740B82 /* UIView+loadXib.swift */; };
+		37A30A1A2402713F00740B82 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A30A182402713F00740B82 /* ImageCollectionViewCell.swift */; };
+		37A30A1B2402713F00740B82 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A30A192402713F00740B82 /* ImageCollectionViewCell.xib */; };
 		3F0D12D8F19E30463BFB71F0 /* Pods_FlowerFair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F197A4850BF7D239CE36CB /* Pods_FlowerFair.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +98,8 @@
 		37A30A0F2401BCCC00740B82 /* OrderDetailFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailFooterView.xib; sourceTree = "<group>"; };
 		37A30A112401BCF100740B82 /* OrderDetailFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailFooterView.swift; sourceTree = "<group>"; };
 		37A30A132401BE5800740B82 /* UIView+loadXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+loadXib.swift"; sourceTree = "<group>"; };
+		37A30A182402713F00740B82 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		37A30A192402713F00740B82 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		A4194FB8BD212DE97695A81C /* Pods-FlowerFair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowerFair.release.xcconfig"; path = "Target Support Files/Pods-FlowerFair/Pods-FlowerFair.release.xcconfig"; sourceTree = "<group>"; };
 		C5359F765F6941295E7BBFEF /* Pods-FlowerFair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowerFair.debug.xcconfig"; path = "Target Support Files/Pods-FlowerFair/Pods-FlowerFair.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -319,6 +323,7 @@
 		22DDA88E23FBEDB4009B3D8C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				37A30A152402706B00740B82 /* OrderDetail */,
 				22DDA88F23FBEDBC009B3D8C /* Order */,
 			);
 			path = Cells;
@@ -435,6 +440,15 @@
 			path = OrderDetailFooter;
 			sourceTree = "<group>";
 		};
+		37A30A152402706B00740B82 /* OrderDetail */ = {
+			isa = PBXGroup;
+			children = (
+				37A30A182402713F00740B82 /* ImageCollectionViewCell.swift */,
+				37A30A192402713F00740B82 /* ImageCollectionViewCell.xib */,
+			);
+			path = OrderDetail;
+			sourceTree = "<group>";
+		};
 		AACF75F36C5DDEDF195E13AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,6 +531,7 @@
 				37A30A0824017F3400740B82 /* OrderDetailViewController.storyboard in Resources */,
 				22DDA88A23FBE944009B3D8C /* OrdersViewController.storyboard in Resources */,
 				22DDA86723FABEE0009B3D8C /* Localizable.strings in Resources */,
+				37A30A1B2402713F00740B82 /* ImageCollectionViewCell.xib in Resources */,
 				22DDA85823FAB09D009B3D8C /* LaunchScreen.storyboard in Resources */,
 				37A30A102401BCCC00740B82 /* OrderDetailFooterView.xib in Resources */,
 				22DDA86423FABEB3009B3D8C /* Colors.xcassets in Resources */,
@@ -604,6 +619,7 @@
 				22DDA88623FAEF88009B3D8C /* Strings.swift in Sources */,
 				37A30A122401BCF100740B82 /* OrderDetailFooterView.swift in Sources */,
 				37A30A0C240180D000740B82 /* OrderDetailViewModel.swift in Sources */,
+				37A30A1A2402713F00740B82 /* ImageCollectionViewCell.swift in Sources */,
 				22DDA87923FAD24C009B3D8C /* NavigationFlowController.swift in Sources */,
 				37A30A0A240180A400740B82 /* OrderDetailViewController.swift in Sources */,
 				37A309F324010BAA00740B82 /* OrderService.swift in Sources */,

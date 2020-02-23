@@ -15,27 +15,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JId-XW-ZBg">
-                                <rect key="frame" x="0.0" y="44" width="414" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z1F-sP-MV8" customClass="ISPageControl" customModule="ISPageControl">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIb-7t-d85">
-                                        <rect key="frame" x="8" y="-22" width="406" height="304"/>
-                                        <viewLayoutGuide key="contentLayoutGuide" id="h5f-tz-hRJ"/>
-                                        <viewLayoutGuide key="frameLayoutGuide" id="sMY-XR-bVc"/>
-                                    </scrollView>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="QGa-0u-xns">
-                                        <rect key="frame" x="187.5" y="91" width="39" height="37"/>
-                                    </pageControl>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yoP-LN-gTH">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="42x-VV-AMi">
+                                            <size key="itemSize" width="0.0" height="0.0"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                    </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="sIb-7t-d85" firstAttribute="width" secondItem="JId-XW-ZBg" secondAttribute="width" id="9x4-d7-XVe"/>
-                                    <constraint firstItem="sIb-7t-d85" firstAttribute="height" secondItem="JId-XW-ZBg" secondAttribute="height" id="ASQ-eF-hih"/>
-                                    <constraint firstAttribute="height" priority="250" constant="128" id="Akk-oV-Do7"/>
-                                    <constraint firstItem="sIb-7t-d85" firstAttribute="top" secondItem="JId-XW-ZBg" secondAttribute="top" id="FCT-Cs-Vf4"/>
-                                    <constraint firstAttribute="bottom" secondItem="sIb-7t-d85" secondAttribute="bottom" id="Vd7-3K-AbS"/>
-                                    <constraint firstItem="QGa-0u-xns" firstAttribute="centerX" secondItem="JId-XW-ZBg" secondAttribute="centerX" id="Ymy-SL-ATI"/>
-                                    <constraint firstAttribute="bottom" secondItem="QGa-0u-xns" secondAttribute="bottom" id="ulP-3I-kMH"/>
+                                    <constraint firstAttribute="trailing" secondItem="yoP-LN-gTH" secondAttribute="trailing" id="14J-GQ-Pxq"/>
+                                    <constraint firstAttribute="bottom" secondItem="yoP-LN-gTH" secondAttribute="bottom" id="LdA-bK-3tM"/>
+                                    <constraint firstItem="yoP-LN-gTH" firstAttribute="leading" secondItem="Z1F-sP-MV8" secondAttribute="leading" id="N6B-Q1-GkK"/>
+                                    <constraint firstItem="yoP-LN-gTH" firstAttribute="top" secondItem="Z1F-sP-MV8" secondAttribute="top" id="yxG-Gq-9EJ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5z-Eg-z29" customClass="OrderDetailFooterView" customModule="FlowerFair" customModuleProvider="target">
@@ -49,20 +49,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="VBo-IT-G6n" firstAttribute="trailing" secondItem="M5z-Eg-z29" secondAttribute="trailing" id="0IF-tV-mly"/>
-                            <constraint firstItem="sIb-7t-d85" firstAttribute="leading" secondItem="VBo-IT-G6n" secondAttribute="leading" id="7hx-qF-ZLY"/>
+                            <constraint firstItem="Z1F-sP-MV8" firstAttribute="leading" secondItem="VBo-IT-G6n" secondAttribute="leading" id="15v-i1-pJs"/>
+                            <constraint firstItem="Z1F-sP-MV8" firstAttribute="top" secondItem="Ils-RZ-aEP" secondAttribute="top" id="87I-NL-vDJ"/>
                             <constraint firstItem="M5z-Eg-z29" firstAttribute="leading" secondItem="VBo-IT-G6n" secondAttribute="leading" id="9iK-Nl-OsA"/>
-                            <constraint firstItem="JId-XW-ZBg" firstAttribute="top" secondItem="Ils-RZ-aEP" secondAttribute="top" constant="44" id="Gi1-Xx-dGU"/>
-                            <constraint firstItem="VBo-IT-G6n" firstAttribute="trailing" secondItem="JId-XW-ZBg" secondAttribute="trailing" id="V3o-RU-Wi6"/>
-                            <constraint firstItem="JId-XW-ZBg" firstAttribute="leading" secondItem="VBo-IT-G6n" secondAttribute="leading" id="bAx-gE-V0s"/>
                             <constraint firstItem="M5z-Eg-z29" firstAttribute="bottom" secondItem="Ils-RZ-aEP" secondAttribute="bottom" id="d0d-dw-s1l"/>
+                            <constraint firstItem="VBo-IT-G6n" firstAttribute="trailing" secondItem="Z1F-sP-MV8" secondAttribute="trailing" id="eYD-9m-BYJ"/>
+                            <constraint firstItem="Z1F-sP-MV8" firstAttribute="height" secondItem="VBo-IT-G6n" secondAttribute="height" multiplier="0.5" id="hS8-C0-u3V"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VBo-IT-G6n"/>
                     </view>
                     <connections>
-                        <outlet property="containerView" destination="JId-XW-ZBg" id="bbe-XF-twi"/>
+                        <outlet property="collectionView" destination="yoP-LN-gTH" id="8mB-r8-3i6"/>
                         <outlet property="footerView" destination="M5z-Eg-z29" id="59F-JJ-6XS"/>
-                        <outlet property="pageControl" destination="QGa-0u-xns" id="Wkk-T3-P0e"/>
-                        <outlet property="scrollView" destination="sIb-7t-d85" id="dZV-N4-wyY"/>
+                        <outlet property="pageControl" destination="Z1F-sP-MV8" id="B0d-oT-3bo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vew-xe-NRB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

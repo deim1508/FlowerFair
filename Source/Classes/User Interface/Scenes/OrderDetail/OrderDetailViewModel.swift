@@ -10,7 +10,8 @@ import UIKit
 
 protocol OrderDetailViewModelInputs {}
 protocol OrderDetailViewModelOutputs {
-    var flowerImageUrls: [URL?] { get }
+    var flowerImageUrls: [String]? { get }
+    var imageCollectionCellViewModels: [ImageCollectionViewCellViewModel] { get }
     var footerViewModel: OrderDetailFooterViewModel { get }
 }
 protocol OrderDetailViewModel {
@@ -22,8 +23,9 @@ final class OrderDetailViewModelImpl: OrderDetailViewModel {
     //MARK: - Public properties
     var inputs: OrderDetailViewModelInputs { return self }
     var outputs: OrderDetailViewModelOutputs { return self }
-    var flowerImageUrls: [URL?] = []
+    var flowerImageUrls: [String]? = []
     var footerViewModel: OrderDetailFooterViewModel
+    var imageCollectionCellViewModels: [ImageCollectionViewCellViewModel] = []
     
     //MARK: - Private properties
     private let order: Order
@@ -32,9 +34,11 @@ final class OrderDetailViewModelImpl: OrderDetailViewModel {
     init(order: Order) {
         self.order = order
         footerViewModel = OrderDetailFooterViewModel(deliverTo: order.deliverTo, price: order.price)
+        
+        flowerImageUrls = order.imageUrl
         guard let imageUrls = order.imageUrl else { return }
-        flowerImageUrls = imageUrls.map({ flowerImageUrl -> URL? in
-            URL(string: flowerImageUrl)
+        imageCollectionCellViewModels = imageUrls.map({ imageUrl -> ImageCollectionViewCellViewModel in
+            ImageCollectionViewCellViewModel(flowerImageUrl: imageUrl)
         })
     }
 }

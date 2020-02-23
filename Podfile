@@ -12,4 +12,5 @@ target 'FlowerFair' do
   pod 'RxOptional', '~> 3.6.2'
   pod 'PINRemoteImage'
   pod 'Alamofire'
+  pod 'ISPageControl', '~> 0.1.0'
 end
