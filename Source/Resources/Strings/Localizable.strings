@@ -1,0 +1,17 @@
+//MARK: - Orders
+"order_list_title" = "Orders";
+"order_price_with_currency" = "%@ RON";
+
+//MARK: - BackendErrors
+"invalid_json" = "Invalid JSON!";
+"invalid_url" = "Invalid URL!";
+"invalid_data" = "There is some problem with the data!";
+"general_error" = "Sorry, something went wrong!";
+
+//MARK: - OrderDetail
+"delivered_to" = "Delivered to: %@";
+
+//MARK: - Alert
+"ok" = "OK";
+"load_orders_error_message" = "Maybe the server is not available. Please try again later!";
+"alert_title_sorry" = "Sorry";
